@@ -1,0 +1,14 @@
+.nav{
+    grid-area: nav;
+    background-color: fuchsia;
+}
+
+.nav_list li {
+    list-style-type: none;
+
+}
+
+.nav_list li a{
+    list-style-type: none;
+    color:white;
+}
