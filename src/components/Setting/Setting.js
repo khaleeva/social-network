@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Dialogs = () => {
+const Setting = () => {
     return (
         <div>
-            <h1>message</h1>
+            settings
         </div>
     );
 };
 
-export default Dialogs;
+export default Setting;
