@@ -1,5 +1,16 @@
 
 .main{
     grid-area: main;
-    background-color: orangered;
+    background-color: #1e2745;
+}
+
+.imgContainer{
+    width: 100%;
+    height: 300px;
+
+}
+
+.imgContainer img{
+
+    max-height: 300px;
 }
