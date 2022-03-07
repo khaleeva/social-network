@@ -15,7 +15,6 @@
     padding: 15px;
     border-radius: 5px;
 
-
 }
 
 
@@ -23,7 +22,7 @@
 .nav a:hover{
     color:#50b5ff;
     background: rgba(80,181,255,.2);
-    transition: color 0.2s ease-in;
+    transition: all 0.2s ease-in;
 
 
 }

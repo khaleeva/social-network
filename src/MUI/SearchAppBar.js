@@ -18,8 +18,8 @@ const Search = styled('div')(({theme}) => ({
 
 
 const StyledSearchIcon = styled(SearchIcon)(({theme}) => ({
-    color: 'inherit', '&: hover': {
-        color: "#50b5ff", cursor: "pointer", transition: "color 0.2s ease-in"
+    color: '#50b5ff ', '&: hover': {
+        color: "#449ad9", cursor: "pointer", transition: "color 0.2s ease-in"
     }
 }))
 

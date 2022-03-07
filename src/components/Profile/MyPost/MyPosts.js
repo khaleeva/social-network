@@ -4,12 +4,12 @@ import Post from "./Post/Post";
 
 const MyPosts = () => {
     return (
-        <div>
+        <div className={classes.posts}>
             My post
             <div>
                 New post
             </div>
-            <div className={classes.posts}>
+            <div >
                 <Post message="Hello, how are you?"/>
                 <Post message="It's my first post"/>
             </div>

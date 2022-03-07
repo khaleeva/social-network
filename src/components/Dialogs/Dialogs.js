@@ -40,7 +40,28 @@ let dialogsData = [
     }
 ]
 
-
+let messagesData = [
+    {
+        id: 1,
+        message: "Hi",
+    },
+    {
+        id: 2,
+        message: "Hello",
+    },
+    {
+        id: 3,
+        message: "Hi are you?",
+    },
+    {
+        id: 4,
+        message: "fine",
+    },
+    {
+        id: 5,
+        message: "Go",
+    }
+]
 
 const Dialogs = () => {
     return (
@@ -54,9 +75,13 @@ const Dialogs = () => {
                 }
             </div>
             <div className={classes.messagesItems}>
-                <Message message={"Hi"}/>
-                <Message message={"How are you?"}/>
-                <Message message={"wow!"}/>
+                {messagesData.map((message) => {
+                    return (
+                        <Message message={message.message} id={message.id}/>
+                    )
+                })
+
+                }
             </div>
         </div>
     );
