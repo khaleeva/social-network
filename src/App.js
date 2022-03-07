@@ -10,6 +10,9 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Setting from "./components/Setting/Setting";
 import Footer from "./components/Footer/Footer";
+import Privacy from "./components/Privacy/Privacy";
+import Terms from "./components/Terms/Terms";
+import ProfileInfo from "./components/Profile/ProfileInfo/ProfileInfo";
 
 function App() {
   return (
@@ -19,11 +22,14 @@ function App() {
               <Navbar/>
               <div className="app-wrapper-content">
                   <Routes>
-                      <Route path="/profile" element={<Profile/>}/>
+                      <Route path='/' element={<Profile/>}/>
+                      <Route path="/profile"  element={<Profile/>}/>
                       <Route path="/dialogs/*" element={<Dialogs/>}/>
                       <Route path="/news" element={<News/>}/>
                       <Route path="/music" element={<Music/>}/>
                       <Route path="/settings" element={<Setting/>}/>
+                      <Route path="/privacy" element={<Privacy/>}/>
+                      <Route path="/terms" element={<Terms/>}/>
                   </Routes>
               </div>
               <Footer/>

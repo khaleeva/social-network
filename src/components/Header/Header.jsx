@@ -2,13 +2,14 @@ import React from 'react';
 import classes from './Header.module.css';
 import SearchAppBar from "../../MUI/SearchAppBar";
 import Avatar from "@mui/material/Avatar";
+import {NavLink} from "react-router-dom";
 
 
 const Header = () => {
     return (
         <header className={classes.header}>
             <div className={classes.logo}>
-                <img src="https://templates.iqonic.design/socialv/bs5/html/dist/assets/images/logo.png" alt="logo"/>
+                <NavLink to={"/"}><img src="https://templates.iqonic.design/socialv/bs5/html/dist/assets/images/logo.png" alt="logo"/></NavLink>
                 <div className="logoText">SocialV</div>
             </div>
             <SearchAppBar/>

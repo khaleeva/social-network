@@ -16,7 +16,9 @@
     align-items: center;
     font-size: 30px;
 }
-.logo img{
+.logo a img{
+    display: flex;
+    align-items: center;
     margin-right: 10px;
     max-width: 50px;
 }

@@ -6,8 +6,8 @@ const Footer = () => {
     return (
         <div className={classes.footer}>
             <div className={classes.footerNavigation}>
-                <NavLink to={"/1"}>Privacy Policy</NavLink>
-                <NavLink to={"/2"}> Terms of Use</NavLink>
+                <NavLink to={"/privacy"}>Privacy Policy</NavLink>
+                <NavLink to={"/terms"}> Terms of Use</NavLink>
             </div>
             <div className={classes.footerInfo}>
                 <p>Copyright 2022</p>
