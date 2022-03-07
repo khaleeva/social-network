@@ -12,7 +12,10 @@ const Header = () => {
                 <div className="logoText">SocialV</div>
             </div>
             <SearchAppBar/>
-            <Avatar src={"http://zvezdi.ru/uploads/posts/2016-06/1465216095_foks1.jpg"}/>
+            <Avatar
+                src={"http://zvezdi.ru/uploads/posts/2016-06/1465216095_foks1.jpg"}
+                sx={{width: 50, height: 50, border: "1px solid #8c91b6"}}
+            />
         </header>);
 };
 

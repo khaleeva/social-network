@@ -9,6 +9,7 @@ import React from "react";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Setting from "./components/Setting/Setting";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
                       <Route path="/settings" element={<Setting/>}/>
                   </Routes>
               </div>
+              <Footer/>
           </div>
 
       </BrowserRouter>

@@ -3,11 +3,13 @@
   width: 100%;
   display: grid;
   grid-template-columns: 0.6fr 10fr;
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: 60px 1fr 60px;
   grid-template-areas: "header header"
-  "nav main";
-  /*grid-gap: 0.6rem;*/
+  "nav main"
+  "nav footer";
   position: relative;
+  overflow: hidden;
+  min-height: 100vh;
 }
 
 

@@ -72,7 +72,7 @@ const ProfileInfo = () => {
             <div className={classes.avatar}>
                 <Avatar
                     src={"http://zvezdi.ru/uploads/posts/2016-06/1465216095_foks1.jpg"}
-                    sx={{width: 120, height: 120, border: "2px solid #8c91b6"}}
+                    sx={{width: 120, height: 120}}
                 />
                 <p>Megan Fox</p>
             </div>
