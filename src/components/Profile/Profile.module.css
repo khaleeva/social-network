@@ -1,16 +1,13 @@
 
 .main{
     grid-area: main;
-    background-color: #1e2745;
+    /*background-color: #1e2745;*/
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    grid-template-areas: "imgContainer"
+  ;
+
 }
 
-.imgContainer{
-    width: 100%;
-    height: 300px;
-
-}
-
-.imgContainer img{
-
-    max-height: 300px;
-}

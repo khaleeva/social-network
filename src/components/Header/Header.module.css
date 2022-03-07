@@ -1,12 +1,25 @@
 .header{
     grid-area: header;
     background-color: #1e2745;
-    padding: 0 30px;
+    padding: 0 15px;
     display: flex;
     align-items: center;
-
+    justify-content: space-between;
 }
 
-.header img{
-    width: 50px;
+/*.header img{*/
+/*    width: 50px;*/
+/*}*/
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
 }
+.logo img{
+    margin-right: 10px;
+    max-width: 50px;
+}
+
+
+
