@@ -11,7 +11,7 @@ const Footer = () => {
             </div>
             <div className={classes.footerInfo}>
                 <p>Copyright 2022</p>
-                <NavLink to={"/"}>SocialV</NavLink>
+                <NavLink to={"/"}>LOGO</NavLink>
                 <p>All Rights Reserved</p>
             </div>
 

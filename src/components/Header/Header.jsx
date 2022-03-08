@@ -9,14 +9,18 @@ const Header = () => {
     return (
         <header className={classes.header}>
             <div className={classes.logo}>
-                <NavLink to={"/"}><img src="https://templates.iqonic.design/socialv/bs5/html/dist/assets/images/logo.png" alt="logo"/></NavLink>
-                <div className="logoText">SocialV</div>
+                <NavLink to={"/"}>LOGO</NavLink>
+                {/*<div className="logoText">SocialV</div>*/}
             </div>
             <SearchAppBar/>
-            <Avatar
-                src={"http://zvezdi.ru/uploads/posts/2016-06/1465216095_foks1.jpg"}
-                sx={{width: 50, height: 50, border: "1px solid #8c91b6"}}
-            />
+            <div className={classes.user}>
+                <Avatar
+                    src={"http://zvezdi.ru/uploads/posts/2016-06/1465216095_foks1.jpg"}
+                    sx={{width: 50, height: 50, border: "1px solid #8c91b6"}}
+                />
+                <p>Megan Fox</p>
+            </div>
+
         </header>);
 };
 
