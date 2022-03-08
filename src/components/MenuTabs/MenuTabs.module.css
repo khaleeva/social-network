@@ -9,6 +9,7 @@
   background-color: #1e2745;
   border-radius: 10px;
 
+
 }
 
 .menuTabs a{
@@ -24,9 +25,9 @@
 }
 
 
-.menuTabs a:hover{
+.active{
   background-color: #50b5ff;
-  color:white;
+  color:white !important;
 }
 
 

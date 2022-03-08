@@ -8,13 +8,16 @@ import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 
 const Navbar = () => {
+
+    const setActive = ({isActive}) => isActive ? classes.active : '';
+
     return (
         <nav className={classes.nav}>
-            <NavLink to='/profile'><PersonOutlineIcon/></NavLink>
-            <NavLink to='/dialogs'><MailOutlineIcon/></NavLink>
-            <NavLink to='/news'><NewspaperIcon/></NavLink>
-            <NavLink to='/music'><PlayCircleOutlineIcon/></NavLink>
-            <NavLink to='/settings'><SettingsOutlinedIcon/></NavLink>
+            <NavLink to='/profile' className={setActive}><PersonOutlineIcon/></NavLink>
+            <NavLink to='/dialogs' className={setActive}><MailOutlineIcon/></NavLink>
+            <NavLink to='/news' className={setActive}><NewspaperIcon/></NavLink>
+            <NavLink to='/music' className={setActive}><PlayCircleOutlineIcon/></NavLink>
+            <NavLink to='/settings' className={setActive}><SettingsOutlinedIcon/></NavLink>
         </nav>
     );
 };

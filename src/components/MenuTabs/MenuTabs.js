@@ -4,13 +4,17 @@ import {NavLink, Outlet} from "react-router-dom";
 
 
 const MenuTabs = () => {
+    const setActive = ({isActive}) => isActive ? classes.active : '';
+
+
+
     return (
         <>
             <div className={classes.menuTabs}>
-                <NavLink to={"posts"}>TimeLine</NavLink>
-                <NavLink to={"about"}>About</NavLink>
-                <NavLink to={"friends"}>Friends</NavLink>
-                <NavLink to={"photos"}>Photos</NavLink>
+                <NavLink  to={"posts"} className={setActive}>TimeLine</NavLink>
+                <NavLink to={"about"} className={setActive}>About</NavLink>
+                <NavLink to={"friends"} className={setActive}>Friends</NavLink>
+                <NavLink to={"photos"} className={setActive}>Photos</NavLink>
             </div>
             <div className={classes.mainContainer}>
                 <Outlet />

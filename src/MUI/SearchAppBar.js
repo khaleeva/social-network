@@ -11,7 +11,7 @@ const Search = styled('div')(({theme}) => ({
     backgroundColor: hexToRgb("#182039", 0.15),
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     width: '30rem',
     border: "1px solid #252e4b",
 }));
@@ -27,7 +27,7 @@ const StyledSearchIcon = styled(SearchIcon)(({theme}) => ({
 const StyledInputBase = styled(InputBase)(({theme}) => ({
     color: 'inherit', '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
-        paddingLeft: `calc(1em + ${theme.spacing(2)})`,
+        // paddingLeft: `calc(1em + ${theme.spacing(2)})`,
         transition: theme.transitions.create('width'),
         width: '100%',
         [theme.breakpoints.up('sm')]: {

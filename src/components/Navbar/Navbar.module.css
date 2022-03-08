@@ -14,17 +14,13 @@
     color: #8c91b6;
     padding: 15px;
     border-radius: 5px;
+    margin-bottom: 1rem;
 
 }
 
-
-
-.nav a:hover{
-    color:#50b5ff;
+.active{
+    color:#50b5ff !important;
     background: rgba(80,181,255,.2);
-    transition: all 0.2s ease-in;
-
-
 }
 
 

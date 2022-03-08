@@ -11,6 +11,11 @@
     padding: 10px;
 }
 
+.dialog a{
+    color: #8c91b6;
+    text-decoration: none;
+}
+
 .messagesItems{
     padding: 10px;
 }
