@@ -1,0 +1,9 @@
+.sideBar{
+    grid-area: side;
+    background-color: #1e2745;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+
+}

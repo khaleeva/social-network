@@ -1,25 +1,49 @@
 .dialogs{
     display: grid;
-    grid-template-columns: 2fr 10fr;
+    grid-template-columns: 4fr 10fr;
+    
 }
 
 .dialogsItems{
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 2rem;
+
+    background-color: #1e2745;
+    border-radius: 10px;
 }
+
 
 .dialog{
-    padding: 10px;
+   padding: 10px 10px 10px 50px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
 }
 
-.dialog a{
+a{
     color: #8c91b6;
     text-decoration: none;
+    border-radius: 10px;
+
+}
+
+.name{
+    margin-left: 10px;
 }
 
 .messagesItems{
     padding: 10px;
+    margin-top: 2rem;
+    width: 80%;
+
 }
 
 .message{
     padding: 10px;
+}
+
+.active{
+    background-color: #50b5ff;
+    color:white !important;
 }

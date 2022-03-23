@@ -2,19 +2,16 @@ import React from 'react';
 import classes from "./MyPosts.module.css"
 import Post from "./Post/Post";
 
-const posts = [
-    {id:1, post:'Hello, how are you?'},
-    {id:2, post:'It\'s my first post'},
-    {id:3, post:'Hello'},
-    {id:4, post:'today is fine'},
-]
 
-const MyPosts = () => {
+
+const MyPosts = ({posts}) => {
+
     return (
         <div className={classes.posts}>
             My post
-            <div>
-                New post
+            <div className={classes.textarea}>
+                <textarea name="" id="" cols="30" rows="5"></textarea>
+                <button onClick={() => alert('hello')}>Add post</button>
             </div>
             <div >
                 {posts.map((post) => <Post key={post.id} message={post.post}/>)}
