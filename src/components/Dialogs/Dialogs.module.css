@@ -47,3 +47,31 @@ a{
     background-color: #50b5ff;
     color:white !important;
 }
+
+.textarea{
+    margin:1rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+textarea{
+    width: 100%;
+    height: 90px;
+    resize: none;
+}
+
+.sendButton{
+    margin-top: 1rem;
+    background: rgba(80,181,255,.2);
+    color:#50b5ff;
+    border-radius: 5px;
+    max-width: 80px;
+    height: 30px;
+    border: 1px solid #50b5ff;
+    cursor: pointer;
+}
+
+.sendButton:hover{
+    background-color: #50b5ff;
+    color:white;
+}

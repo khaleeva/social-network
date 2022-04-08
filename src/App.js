@@ -19,7 +19,7 @@ import Photos from "./components/Photos/Photos";
 import SideBar from "./components/Friends/SideBar";
 
 
-function App({state}) {
+function App({state, addPost}) {
     console.log(state.messagePage)
   return (
       <div className="app-wrapper">
@@ -30,7 +30,7 @@ function App({state}) {
               <Routes>
                   <Route path='/' element={<Profile/>}/>
                   <Route path="profile/*" element={<Profile/>}>
-                      <Route path="posts" element={<MyPosts posts={state.profilePage.posts}/>}/>
+                      <Route path="posts" element={<MyPosts posts={state.profilePage.posts} addPost={addPost}/>}/>
                       <Route path="about" element={<About/>}/>
                       <Route path="friends" element={<Friends/>}/>
                       <Route path="photos" element={<Photos/>}/>

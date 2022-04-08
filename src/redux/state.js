@@ -28,4 +28,15 @@ let state = {
 
 }
 
+export let addPost = (postMessage) =>{
+
+    let text = {
+        id:5,
+        post: postMessage
+    }
+
+    state.profilePage.posts.push(text);
+    debugger;
+}
+
 export default state;
