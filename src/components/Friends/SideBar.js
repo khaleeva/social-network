@@ -3,7 +3,6 @@ import classes from './friends.module.css'
 import Avatar from "@mui/material/Avatar";
 
 const SideBar = ({dialogs}) => {
-    console.log(dialogs)
     return (
         <div className={classes.sideBar}>
             {   dialogs.map((d) => {

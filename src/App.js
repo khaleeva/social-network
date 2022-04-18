@@ -19,8 +19,9 @@ import Photos from "./components/Photos/Photos";
 import SideBar from "./components/Friends/SideBar";
 
 
-function App({state, addPost}) {
-    console.log(state.messagePage)
+
+
+function App({state, dispatch}) {
   return (
       <div className="app-wrapper">
           <Header/>
@@ -30,12 +31,20 @@ function App({state, addPost}) {
               <Routes>
                   <Route path='/' element={<Profile/>}/>
                   <Route path="profile/*" element={<Profile/>}>
-                      <Route path="posts" element={<MyPosts posts={state.profilePage.posts} addPost={addPost}/>}/>
+                      <Route path="posts" element={<MyPosts
+                          posts={state.profilePage.posts}
+                          newPostText={state.profilePage.newPostText}
+                          dispatch = {dispatch}
+                      />}/>
                       <Route path="about" element={<About/>}/>
                       <Route path="friends" element={<Friends/>}/>
                       <Route path="photos" element={<Photos/>}/>
                   </Route>
-                  <Route path="dialogs/*" element={<Dialogs messages={state.messagePage.messages} dialogs={state.messagePage.dialogs}/>}/>
+                  <Route path="dialogs/*" element={<Dialogs messages={state.messagePage.messages}
+                                                            dialogs={state.messagePage.dialogs}
+                                                            newDialogsText={state.messagePage.newDialogsText}
+                                                            dispatch = {dispatch}
+                  />}/>
                   <Route path="news" element={<News/>}/>
                   <Route path="music" element={<Music/>}/>
                   <Route path="settings" element={<Setting/>}/>

@@ -6,8 +6,6 @@ import Avatar from "@mui/material/Avatar";
 const DialogItem = ({name, id, img}) => {
 
     const setActive = ({isActive}) => isActive ? classes.active : '';
-
-    console.log(img)
     return (
         <NavLink to={`/dialogs/${id}`} className={setActive}>
             <div className={classes.dialog}>
