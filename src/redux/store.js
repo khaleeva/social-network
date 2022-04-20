@@ -1,3 +1,6 @@
+import profileReducer from "./profile-reducer";
+import messageReducer from "./message-reducer";
+
 let store = {
     _state : {
         profilePage: {
@@ -27,7 +30,7 @@ let store = {
                 {id: 5, name: "Bruce", img: "https://kto-zhena.ru/wp-content/uploads/1432274596-bryus-uillis-598x600.jpg"},
             ],
 
-            newDialogsText: "",
+            newMessageText: "",
         }
 
     },
@@ -40,31 +43,18 @@ let store = {
     subscribe (observer){
         this._callSubscriber  = observer;
     },
-    dispatch(action){
-        if (action.type === "ADD-POST") {
-            let newPost = {
-                id:5,
-                post: this._state.profilePage.newPostText
-            }
-            let newDialog = {
-                id: 6,
-                message: this._state.messagePage.newDialogsText
-            }
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText ='';
-            this._state.messagePage.messages.push(newDialog);
-            this._state.messagePage.newDialogsText ='';
+    dispatch(action) {
 
-            this._callSubscriber (this._state);
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT'){
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber (this._state);
-        } else if (action.type === 'UPDATE-NEW-DIALOGS-TEXT'){
-            this._state.messagePage.newDialogsText = action.newText;
-            this._callSubscriber (this._state);
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.messagePage = messageReducer(this._state.messagePage, action);
+        this._callSubscriber(this._state);
     }
+
 }
+
+
+
+
 
 window.store = store;
 

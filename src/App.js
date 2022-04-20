@@ -42,7 +42,7 @@ function App({state, dispatch}) {
                   </Route>
                   <Route path="dialogs/*" element={<Dialogs messages={state.messagePage.messages}
                                                             dialogs={state.messagePage.dialogs}
-                                                            newDialogsText={state.messagePage.newDialogsText}
+                                                            newMessageText={state.messagePage.newMessageText}
                                                             dispatch = {dispatch}
                   />}/>
                   <Route path="news" element={<News/>}/>
