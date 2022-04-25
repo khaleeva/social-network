@@ -21,22 +21,22 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 
 
-function App({store, state, dispatch}) {
+function App() {
   return (
       <div className="app-wrapper">
           <Header/>
           <Navbar/>
-          <SideBar dialogs={state.messagePage.dialogs}/>
+          {/*<SideBar dialogs={state.messagePage.dialogs}/>*/}
           <div className="app-wrapper-content">
               <Routes>
                   <Route path='/' element={<Profile/>}/>
                   <Route path="profile/*" element={<Profile/>}>
-                      <Route path="posts" element={<MyPostsContainer store={store}/>}/>
+                      <Route path="posts" element={<MyPostsContainer />}/>
                       <Route path="about" element={<About/>}/>
                       <Route path="friends" element={<Friends/>}/>
                       <Route path="photos" element={<Photos/>}/>
                   </Route>
-                  <Route path="dialogs/*" element={<DialogsContainer store={store} />}/>
+                  <Route path="dialogs/*" element={<DialogsContainer />}/>
                   <Route path="news" element={<News/>}/>
                   <Route path="music" element={<Music/>}/>
                   <Route path="settings" element={<Setting/>}/>
