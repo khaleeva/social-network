@@ -1,14 +1,14 @@
 import React from 'react';
-import classes from './friends.module.css'
+import classes from './Friends.module.css'
 import Avatar from "@mui/material/Avatar";
 
-const SideBar = ({dialogs}) => {
+const SideBar = ({users}) => {
     return (
         <div className={classes.sideBar}>
-            {   dialogs.map((d) => {
+            {   users.map((user) => {
                 return (
-                    <Avatar key={d.id}
-                        src={d.img}
+                    <Avatar key={user.id}
+                        src={user.img}
                         sx={{width: 50, height: 50, marginBottom: 2,}}
                     />
                 )

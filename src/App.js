@@ -12,11 +12,11 @@ import Footer from "./components/Footer/Footer";
 import Privacy from "./components/Privacy/Privacy";
 import Terms from "./components/Terms/Terms";
 import About from "./components/About/About";
-import Friends from "./components/Friends/Friends";
 import Photos from "./components/Photos/Photos";
-import SideBar from "./components/Friends/SideBar";
 import MyPostsContainer from "./components/Profile/MyPost/MyPostContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import FriendsContainer from "./components/Friends/FriendsContainer";
+import SideBarContainer from "./components/Friends/SideBarContainer";
 
 
 
@@ -26,14 +26,14 @@ function App() {
       <div className="app-wrapper">
           <Header/>
           <Navbar/>
-          {/*<SideBar dialogs={state.messagePage.dialogs}/>*/}
+          <SideBarContainer/>
           <div className="app-wrapper-content">
               <Routes>
                   <Route path='/' element={<Profile/>}/>
                   <Route path="profile/*" element={<Profile/>}>
                       <Route path="posts" element={<MyPostsContainer />}/>
                       <Route path="about" element={<About/>}/>
-                      <Route path="friends" element={<Friends/>}/>
+                      <Route path="friends" element={<FriendsContainer />}/>
                       <Route path="photos" element={<Photos/>}/>
                   </Route>
                   <Route path="dialogs/*" element={<DialogsContainer />}/>
