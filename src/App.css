@@ -31,6 +31,10 @@
   color: white;
 }
 
+.MuiCircularProgress-root{
+  color: #50b5ff !important;
+}
+
 
 
 

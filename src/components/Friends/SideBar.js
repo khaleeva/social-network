@@ -2,25 +2,18 @@ import React from 'react';
 import classes from './Users.module.css'
 import Avatar from "@mui/material/Avatar";
 
-const SideBar = ({users}) => {
+
+const SideBar = (props) => {
+
     return (
 
         <div className={classes.sideBar}>
-
-            { users.map((user) => {
-                if(user.followed){
-                    return (
-                        <Avatar key={user.id}
-                                src={user.img}
-                                sx={{width: 50, height: 50, marginBottom: 2,}}
-                        />
-                    )
-                } else return <></>
-
-            } )
-
-            }
-
+            {props.users.map((user) => <>
+                {user.followed ? <Avatar  key={user.id}
+                                          src={user.photos.small}
+                                          sx={{width: 50, height: 50, marginBottom: 2,}}
+                /> : null}
+            </> )}
         </div>
     );
 };
