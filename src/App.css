@@ -10,7 +10,19 @@
   position: relative;
   overflow: hidden;
   min-height: 100vh;
+  background-color: #182039;
+  color: #8c91b6;
 }
+
+
+.MuiPagination-root ul li button{
+  color: #50b5ff;
+  background: rgba(80,181,255,.2);
+  border: 1px solid #50b5ff;
+  margin-left: 0.5rem;
+}
+
+
 
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Header.module.css';
 import SearchAppBar from "../../MUI/SearchAppBar";
-import Avatar from "@mui/material/Avatar";
+import Avatar from "../../MUI/Avatar";
 import {NavLink} from "react-router-dom";
 
 

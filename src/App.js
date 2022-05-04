@@ -12,12 +12,12 @@ import Footer from "./components/Footer/Footer";
 import Privacy from "./components/Privacy/Privacy";
 import Terms from "./components/Terms/Terms";
 import About from "./components/About/About";
-import Photos from "./components/Photos/Photos";
 import MyPostsContainer from "./components/Profile/MyPost/MyPostContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import FriendsContainer from "./components/Friends/FriendsContainer";
+import UsersContainer from "./components/Friends/UsersContainer";
 import SideBarContainer from "./components/Friends/SideBarContainer";
-
+import PhotoContainer from "./components/Photos/PhotoContainer";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -33,8 +33,8 @@ function App() {
                   <Route path="profile/*" element={<Profile/>}>
                       <Route path="posts" element={<MyPostsContainer />}/>
                       <Route path="about" element={<About/>}/>
-                      <Route path="friends" element={<FriendsContainer />}/>
-                      <Route path="photos" element={<Photos/>}/>
+                      <Route path="friends" element={<UsersContainer />}/>
+                      <Route path="photos" element={<PhotoContainer/>}/>
                   </Route>
                   <Route path="dialogs/*" element={<DialogsContainer />}/>
                   <Route path="news" element={<News/>}/>

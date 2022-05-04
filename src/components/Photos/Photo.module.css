@@ -1,0 +1,19 @@
+.photoContainer{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1.5rem;
+    row-gap: 1.5rem;
+}
+
+.photoItem{
+
+    height: 300px;
+}
+
+.photoItem img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius:0.5rem;
+}

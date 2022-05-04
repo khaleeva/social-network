@@ -30,6 +30,7 @@
     width: 100%;
     height: 40%;
 
+
 }
 
 .friendsBac img{
@@ -37,6 +38,7 @@
     height: 100%;
     border-top-right-radius: 0.5rem;
     border-top-left-radius: 0.5rem;
+
 }
 
 .friendsCard{
@@ -44,6 +46,8 @@
     justify-content: space-between;
     align-self: center;
     padding: 2rem;
+
+
 }
 
 .friendsInfo{
@@ -79,4 +83,33 @@
     background-color: #50b5ff;
     color:white;
 }
+
+.pagesContainer{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1rem 2rem;
+}
+
+ span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #50b5ff;
+    background: rgba(80,181,255,.2);
+    margin-left: 0.5rem;
+    color:#50b5ff;
+    cursor:pointer;
+}
+
+
+ .selected{
+     background-color: #50b5ff;
+     color: white;
+}
+
 

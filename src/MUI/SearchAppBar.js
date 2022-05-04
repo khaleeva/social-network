@@ -3,7 +3,8 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import {hexToRgb} from "@mui/system/colorManipulator";
+import {hexToRgb} from "@mui/material";
+
 
 const Search = styled('div')(({theme}) => ({
     position: 'relative',
