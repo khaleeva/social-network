@@ -34,22 +34,21 @@ class Users extends React.Component {
    render() {
 
             let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
-            let pages = [];
-            for (let i = 1; i <= pagesCount; i++){
-                pages.push(i)
-                if (i === 20) break;
-            }
+            // let pages = [];
+            // for (let i = 1; i <= pagesCount; i++){
+            //     pages.push(i)
+            //     if (i === 20) break;
+            // }
 
        return (
            <>
-              <div className={classes.pagesContainer}>
-                  {pages.map((page) => {
-                      return <span  className={this.props.currentPage === page ? classes.selected : ""}
-                                   onClick={(e) => {this.onPageChanged(page)}}
-                      >{page}</span>
-                  })}
-                  {/*<Pagination pagesCount = {pagesCount} />*/}
-              </div>
+               <div className={classes.pagesContainer}>
+                   <Pagination
+                       pagesCount={pagesCount}
+                       currentPage={this.props.currentPage}
+                       onPageChanged={this.onPageChanged}
+                   />
+               </div>
                <div className={classes.friendsContainer}>
                    {this.props.users.map((user) =>
                        <div key={user.id} className={classes.friendsItem}>
@@ -84,6 +83,13 @@ class Users extends React.Component {
                            </div>
                        </div>)}
                </div>
+               {/*<div className={classes.pagesContainer}>*/}
+               {/*    {pages.map((page) => {*/}
+               {/*        return <span  className={this.props.currentPage === page ? classes.selected : ""}*/}
+               {/*                      onClick={(e) => {this.onPageChanged(page)}}*/}
+               {/*        >{page}</span>*/}
+               {/*    })}*/}
+               {/*</div>*/}
            </>
 
        )

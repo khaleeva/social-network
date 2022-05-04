@@ -15,13 +15,21 @@
 }
 
 
-.MuiPagination-root ul li button{
+.MuiPagination-root ul li button {
   color: #50b5ff;
   background: rgba(80,181,255,.2);
   border: 1px solid #50b5ff;
   margin-left: 0.5rem;
 }
 
+.MuiPagination-root ul li div {
+  color: #50b5ff;
+}
+
+.MuiPagination-root .Mui-selected{
+  background-color: #50b5ff !important;
+  color: white;
+}
 
 
 
