@@ -8,11 +8,12 @@ import {
     setUsers,
     toggleIsFetching,
     unfollow
-} from "../../redux/friends-reducer";
+} from "../../redux/users-reducer";
 import React from "react";
 import axios from "axios";
 import {CircularProgress} from "@mui/material";
 import Box from "@mui/material/Box";
+import classes from "../Users/Users.module.css";
 
 
 
@@ -45,9 +46,10 @@ class UsersComponent extends React.Component {
 
     render() {
         return (
-            <>
+            <main className={classes.main}>
+                <div className={classes.mainUsersContainer}>
                 {this.props.isFetching ?
-                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems:'center'}}>
+                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems:'center', padding:'20px'}}>
                         <CircularProgress />
                     </Box> : <Users currentPage={this.props.currentPage}
                                     totalUsersCount={this.props.totalUsersCount}
@@ -58,8 +60,8 @@ class UsersComponent extends React.Component {
                                     unfollow={this.props.unfollow}
                     />
                 }
-
-            </>
+                </div>
+            </main>
         )
 
 
@@ -68,11 +70,11 @@ class UsersComponent extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        users: state.friendsPage.users,
-        pageSize: state.friendsPage.pageSize,
-        totalUsersCount: state.friendsPage.totalUsersCount,
-        currentPage: state.friendsPage.currentPage,
-        isFetching: state.friendsPage.isFetching
+        users: state.usersPage.users,
+        pageSize: state.usersPage.pageSize,
+        totalUsersCount: state.usersPage.totalUsersCount,
+        currentPage: state.usersPage.currentPage,
+        isFetching: state.usersPage.isFetching
 
     }
 }

@@ -14,10 +14,11 @@ import Terms from "./components/Terms/Terms";
 import About from "./components/About/About";
 import MyPostsContainer from "./components/Profile/MyPost/MyPostContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import UsersContainer from "./components/Friends/UsersContainer";
-import SideBarContainer from "./components/Friends/SideBarContainer";
+import UsersContainer from "./components/Users/UsersContainer";
+import SideBarContainer from "./components/Users/SideBarContainer";
 import PhotoContainer from "./components/Photos/PhotoContainer";
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import Friends from "./components/Friends/Friends";
+
 
 
 
@@ -33,10 +34,11 @@ function App() {
                   <Route path="profile/*" element={<Profile/>}>
                       <Route path="posts" element={<MyPostsContainer />}/>
                       <Route path="about" element={<About/>}/>
-                      <Route path="friends" element={<UsersContainer />}/>
+                      <Route path="friends" element={<Friends />}/>
                       <Route path="photos" element={<PhotoContainer/>}/>
                   </Route>
                   <Route path="dialogs/*" element={<DialogsContainer />}/>
+                  <Route path="users" element={<UsersContainer />}/>
                   <Route path="news" element={<News/>}/>
                   <Route path="music" element={<Music/>}/>
                   <Route path="settings" element={<Setting/>}/>

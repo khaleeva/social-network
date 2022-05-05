@@ -1,6 +1,6 @@
 import profileReducer from "./profile-reducer";
 import messageReducer from "./message-reducer";
-import friendsReducer from "./friends-reducer";
+import usersReducer from "./users-reducer";
 
 let store = {
     _state : {

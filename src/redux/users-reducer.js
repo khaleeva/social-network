@@ -26,7 +26,7 @@ users: [
 }
 
 
-const friendsReducer = (state = initialState, action) => {
+const usersReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case FOLLOW :
@@ -109,4 +109,4 @@ export const toggleIsFetching = (isFetching) => {
     }
 }
 
-export default friendsReducer;
+export default usersReducer;

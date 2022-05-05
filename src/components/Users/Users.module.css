@@ -1,3 +1,25 @@
+.main{
+    grid-area: main;
+    /*!*background-color: #1e2745;*!*/
+    display: grid;
+    grid-template-columns: 1fr;
+    /*grid-template-rows: 2fr 74px auto;*/
+    /*grid-template-areas: "imgContainer"*/
+    /*"menuTabs"*/
+    /*"mainContainer";*/
+    justify-items: center;
+}
+
+
+.mainUsersContainer{
+
+    width: 80%;
+    background-color: #1e2745;
+    border-radius: 10px;
+    margin: 2rem 0;
+    padding: 20px;
+}
+
 .sideBar{
     grid-area: side;
     background-color: #1e2745;
@@ -8,7 +30,7 @@
 
 }
 
-.friendsContainer{
+.usersContainer{
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -16,7 +38,7 @@
     row-gap: 1.5rem;
 }
 
-.friendsItem{
+.usersItem{
     min-width: 200px;
     height: 300px;
     border: 1px solid #50b5ff;
@@ -26,14 +48,14 @@
 
 }
 
-.friendsBac {
+.usersBac {
     width: 100%;
     height: 40%;
 
 
 }
 
-.friendsBac img{
+.usersBac img{
     width: 100%;
     height: 100%;
     border-top-right-radius: 0.5rem;
@@ -41,7 +63,7 @@
 
 }
 
-.friendsCard{
+.usersCard{
     display: flex;
     justify-content: space-between;
     align-self: center;
@@ -50,19 +72,19 @@
 
 }
 
-.friendsInfo{
+.usersInfo{
     display: flex;
     flex-direction: column;
     row-gap: 0.3rem;
 }
 
-.friendsName{
+.usersName{
     color: #50b5ff;
     font-weight: bold;
 }
 
 
-.friendsCity{
+.usersCity{
     color:white;
     font-weight: bold;
 }

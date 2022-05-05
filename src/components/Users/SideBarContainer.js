@@ -5,7 +5,7 @@ import SideBar from "./SideBar";
 
 let mapStateToProps = (state) => {
     return {
-        users: state.friendsPage.users
+        users: state.usersPage.users
     }
 }
 
