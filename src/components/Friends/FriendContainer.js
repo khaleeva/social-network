@@ -1,6 +1,5 @@
-
 import {connect} from "react-redux";
-import SideBar from "./SideBar";
+import Friends from "./Friends";
 
 
 let mapStateToProps = (state) => {
@@ -12,6 +11,6 @@ let mapStateToProps = (state) => {
 
 
 
-const SideBarContainer = connect(mapStateToProps)(SideBar);
+const FriendsContainer = connect(mapStateToProps)(Friends);
 
-export default SideBarContainer;
+export default FriendsContainer;

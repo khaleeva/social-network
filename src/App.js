@@ -15,9 +15,9 @@ import About from "./components/About/About";
 import MyPostsContainer from "./components/Profile/MyPost/MyPostContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
-import SideBarContainer from "./components/Users/SideBarContainer";
+// import SideBarContainer from "./components/Friends/SideBarContainer";
 import PhotoContainer from "./components/Photos/PhotoContainer";
-import Friends from "./components/Friends/Friends";
+import FriendsContainer from "./components/Friends/FriendContainer";
 
 
 
@@ -27,18 +27,18 @@ function App() {
       <div className="app-wrapper">
           <Header/>
           <Navbar/>
-          <SideBarContainer/>
+          {/*<SideBarContainer/>*/}
           <div className="app-wrapper-content">
               <Routes>
                   <Route path='/' element={<Profile/>}/>
                   <Route path="profile/*" element={<Profile/>}>
                       <Route path="posts" element={<MyPostsContainer />}/>
                       <Route path="about" element={<About/>}/>
-                      <Route path="friends" element={<Friends />}/>
+                      <Route path="friends" element={<FriendsContainer />}/>
                       <Route path="photos" element={<PhotoContainer/>}/>
                   </Route>
-                  <Route path="dialogs/*" element={<DialogsContainer />}/>
                   <Route path="users" element={<UsersContainer />}/>
+                  <Route path="dialogs/*" element={<DialogsContainer />}/>
                   <Route path="news" element={<News/>}/>
                   <Route path="music" element={<Music/>}/>
                   <Route path="settings" element={<Setting/>}/>
