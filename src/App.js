@@ -22,6 +22,7 @@ import FriendsContainer from "./components/Friends/FriendContainer";
 
 
 
+
 function App() {
   return (
       <div className="app-wrapper">
@@ -30,10 +31,11 @@ function App() {
           {/*<SideBarContainer/>*/}
           <div className="app-wrapper-content">
               <Routes>
-                  <Route path='/' element={<Profile/>}/>
-                  <Route path="profile/*" element={<Profile/>}>
-                      <Route path="posts" element={<MyPostsContainer />}/>
+                  <Route path='/' element={<News/>}/>
+                  <Route path="profile" element={<Profile/>}>
+                      <Route index element={<About />}/>
                       <Route path="about" element={<About/>}/>
+                      <Route path="posts" element={<MyPostsContainer />}/>
                       <Route path="friends" element={<FriendsContainer />}/>
                       <Route path="photos" element={<PhotoContainer/>}/>
                   </Route>
@@ -44,6 +46,7 @@ function App() {
                   <Route path="settings" element={<Setting/>}/>
                   <Route path="privacy" element={<Privacy/>}/>
                   <Route path="terms" element={<Terms/>}/>
+
               </Routes>
           </div>
           <Footer/>

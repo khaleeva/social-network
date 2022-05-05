@@ -14,7 +14,7 @@ const Navbar = () => {
 
     return (
         <nav className={classes.nav}>
-            <NavLink to='/profile' className={setActive}><PersonOutlineIcon/></NavLink>
+            <NavLink to='/profile/about' className={setActive}><PersonOutlineIcon/></NavLink>
             <NavLink to='/users' className={setActive}><PeopleOutlineIcon/></NavLink>
             <NavLink to='/dialogs' className={setActive}><MailOutlineIcon/></NavLink>
             <NavLink to='/news' className={setActive}><NewspaperIcon/></NavLink>
