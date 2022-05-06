@@ -3,7 +3,6 @@ import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import {Route, Routes} from "react-router-dom";
-import Profile from "./components/Profile/Profile";
 import React from "react";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
@@ -18,6 +17,9 @@ import UsersContainer from "./components/Users/UsersContainer";
 // import SideBarContainer from "./components/Friends/SideBarContainer";
 import PhotoContainer from "./components/Photos/PhotoContainer";
 import FriendsContainer from "./components/Friends/FriendContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
+
+
 
 
 
@@ -32,9 +34,10 @@ function App() {
           <div className="app-wrapper-content">
               <Routes>
                   <Route path='/' element={<News/>}/>
-                  <Route path="profile" element={<Profile/>}>
+                  <Route path="/profile/*" element={<ProfileContainer/>}>
                       <Route index element={<About />}/>
                       <Route path="about" element={<About/>}/>
+                      <Route path="about/:userId" element={<About/>}/>
                       <Route path="posts" element={<MyPostsContainer />}/>
                       <Route path="friends" element={<FriendsContainer />}/>
                       <Route path="photos" element={<PhotoContainer/>}/>

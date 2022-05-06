@@ -6,6 +6,7 @@ import {NavLink} from "react-router-dom";
 
 const Users = (props) => {
 
+
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     // let pages =[];
     //  for (let i = 1; i<= pagesCount; i++){
@@ -41,7 +42,7 @@ const Users = (props) => {
                             <img
                                 src='https://templates.iqonic.design/socialv/bs5/html/dist/assets/images/page-img/profile-bg6.jpg'
                                 alt=""/>
-                            <NavLink to={`/profile/${user.id}`}>
+                            <NavLink to={`/profile/about/${user.id}`}>
                                 <Avatar key={user.id}
                                         src={user.photos.small}
                                         sx={
@@ -64,7 +65,7 @@ const Users = (props) => {
                                     props.follow(user.id)
                                 }}>Following</button>}
                             <div className={classes.usersInfo}>
-                                <NavLink to={`/profile/${user.id}`}>
+                                <NavLink to={`/profile/about/${user.id}`}>
                                     <div className={classes.usersName}>{user.name}</div>
                                 </NavLink>
                                 <div>{user.status}</div>
