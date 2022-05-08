@@ -101,10 +101,10 @@
 
 }
 
-.followButton:hover{
-    background-color: #50b5ff;
-    color:white;
-}
+/*.followButton:hover{*/
+/*    background-color: #50b5ff;*/
+/*    color:white;*/
+/*}*/
 
 .pagesContainer{
     display:flex;

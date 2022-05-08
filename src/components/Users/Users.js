@@ -5,9 +5,8 @@ import {Pagination} from "@mui/material";
 import {NavLink} from "react-router-dom";
 import {followAPI} from "../../API/API";
 
+
 const Users = (props) => {
-
-
 
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     return (
@@ -44,20 +43,26 @@ const Users = (props) => {
                         </div>
                         <div className={classes.usersCard}>
                             {user.followed ?
-                                <button className={classes.followButton} onClick={() => {followAPI.getUnfollowUser(user.id)
+                                <button disabled = {props.followingInProgress} className={classes.followButton} onClick={() => {
+                                    props.toggleFollowingInProgress(true);
+                                    followAPI.getUnfollowUser(user.id)
                                     .then(data => {
                                         if(data.resultCode === 0){
                                             props.unfollow(user.id)
                                         }
+                                        props.toggleFollowingInProgress(false);
                                     })
                                 }}>Unfollowing</button>
 
 
-                                : <button className={classes.followButton} onClick={() => {followAPI.getFollowUser(user.id)
+                                : <button disabled = {props.followingInProgress} className={classes.followButton} onClick={() => {
+                                    props.toggleFollowingInProgress(true);
+                                    followAPI.getFollowUser(user.id)
                                         .then(data => {
                                             if(data.resultCode === 0){
                                                 props.follow(user.id)
                                             }
+                                            props.toggleFollowingInProgress(false);
                                         })
                                 }}>Following</button>}
 
