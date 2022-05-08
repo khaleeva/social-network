@@ -1,18 +1,18 @@
 
-// import {connect} from "react-redux";
-// import Navbar from "./Navbar";
-//
-//
-// let mapStateToProps = (state) => {
-//     return {
-//
-//        profile: state.profilePage.profile
-//     }
-// }
+import {connect} from "react-redux";
+import Navbar from "./Navbar";
+
+
+let mapStateToProps = (state) => {
+    return {
+
+        id: state.auth.id
+    }
+}
 
 
 
 
-// const NavBarContainer = connect(mapStateToProps)(Navbar);
-//
-// export default NavBarContainer;
+const NavBarContainer = connect(mapStateToProps)(Navbar);
+
+export default NavBarContainer;

@@ -3,30 +3,16 @@ import classes from './Users.module.css'
 import Avatar from "../../MUI/Avatar";
 import {Pagination} from "@mui/material";
 import {NavLink} from "react-router-dom";
+import {followAPI} from "../../API/API";
 
 const Users = (props) => {
 
 
+
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-    // let pages =[];
-    //  for (let i = 1; i<= pagesCount; i++){
-    //      pages.push(i)
-    //      if( i >= 20) break;
-    //  }
-
-
-
     return (
         <>
             <div className={classes.pagesContainer}>
-
-            {/*    <div className={classes.pagesContainer}>*/}
-            {/*        {pages.map((page) => {*/}
-            {/*            return <span  className={props.currentPage === page ? classes.selected : ""}*/}
-            {/*                          onClick={(e) => {props.onPageChanged(page)}}*/}
-            {/*            >{page}</span>*/}
-            {/*        })}*/}
-            {/*    </div>*/}
 
                     <Pagination
                         count={pagesCount}
@@ -58,12 +44,23 @@ const Users = (props) => {
                         </div>
                         <div className={classes.usersCard}>
                             {user.followed ?
-                                <button className={classes.followButton} onClick={() => {
-                                    props.unfollow(user.id)
+                                <button className={classes.followButton} onClick={() => {followAPI.getUnfollowUser(user.id)
+                                    .then(data => {
+                                        if(data.resultCode === 0){
+                                            props.unfollow(user.id)
+                                        }
+                                    })
                                 }}>Unfollowing</button>
-                                : <button className={classes.followButton} onClick={() => {
-                                    props.follow(user.id)
+
+
+                                : <button className={classes.followButton} onClick={() => {followAPI.getFollowUser(user.id)
+                                        .then(data => {
+                                            if(data.resultCode === 0){
+                                                props.follow(user.id)
+                                            }
+                                        })
                                 }}>Following</button>}
+
                             <div className={classes.usersInfo}>
                                 <NavLink to={`/profile/about/${user.id}`}>
                                     <div className={classes.usersName}>{user.name}</div>

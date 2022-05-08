@@ -1,19 +1,12 @@
 import React from 'react';
 import classes from "./MenuTabs.module.css"
 import {NavLink, Outlet} from "react-router-dom";
-import Box from "@mui/material/Box";
-import {CircularProgress} from "@mui/material";
+
 
 
 const MenuTabs = (props) => {
     const setActive = ({isActive}) => isActive ? classes.active : '';
-    if(!props.profile){
-        return (
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems:'center', padding:'20px'}}>
-                <CircularProgress />
-            </Box>
-        )
-    }
+
     return (
         <>
             <div className={classes.menuTabs}>

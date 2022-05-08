@@ -38,5 +38,17 @@
 
 
 
+.MuiMenuItem-root {
+  color:#50b5ff !important;
+  font-weight: bold !important;
+}
+
+.MuiMenuItem-root .active{
+  color:#50b5ff !important;
+  font-weight: bold;
+}
+
+
+
 
 

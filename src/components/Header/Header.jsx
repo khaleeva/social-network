@@ -1,11 +1,11 @@
 import React from 'react';
 import classes from './Header.module.css';
 import SearchAppBar from "../../MUI/SearchAppBar";
-import Avatar from "../../MUI/Avatar";
 import {NavLink} from "react-router-dom";
+import MenuList from "../../MUI/MenuList";
 
 
-const Header = () => {
+const Header = (props) => {
     return (
         <header className={classes.header}>
             <div className={classes.logo}>
@@ -13,13 +13,17 @@ const Header = () => {
                 {/*<div className="logoText">SocialV</div>*/}
             </div>
             <SearchAppBar/>
-            <div className={classes.user}>
-                <Avatar
-                    src={"http://zvezdi.ru/uploads/posts/2016-06/1465216095_foks1.jpg"}
-                    sx={{width: 50, height: 50, border: "1px solid #8c91b6"}}
-                />
-                <p>Megan Fox</p>
+            <div className={classes.loginBlock}>
+                { props.isAuth ?
+                    <div className={classes.user}>
+                        <MenuList login={props.login} id={props.id} isAuth={props.isAuth}/>
+                    </div>
+                    : <NavLink to={'/login'}>Login</NavLink>
+
+                }
+
             </div>
+
 
         </header>);
 };

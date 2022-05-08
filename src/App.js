@@ -1,7 +1,7 @@
 
 import './App.css';
-import Header from "./components/Header/Header";
-import Navbar from "./components/Navbar/Navbar";
+import HeaderContainer from "./components/Header/HeaderContainer";
+// import Navbar from "./components/Navbar/Navbar";
 import {Route, Routes} from "react-router-dom";
 import React from "react";
 import News from "./components/News/News";
@@ -18,18 +18,14 @@ import UsersContainer from "./components/Users/UsersContainer";
 import PhotoContainer from "./components/Photos/PhotoContainer";
 import FriendsContainer from "./components/Friends/FriendContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
-
-
-
-
-
+import NavBarContainer from "./components/Navbar/NavBarContainer";
 
 
 function App() {
   return (
       <div className="app-wrapper">
-          <Header/>
-          <Navbar/>
+          <HeaderContainer/>
+          <NavBarContainer/>
           {/*<SideBarContainer/>*/}
           <div className="app-wrapper-content">
               <Routes>

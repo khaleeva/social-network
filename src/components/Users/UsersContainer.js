@@ -10,10 +10,10 @@ import {
     unfollow
 } from "../../redux/users-reducer";
 import React from "react";
-import axios from "axios";
 import {CircularProgress} from "@mui/material";
 import Box from "@mui/material/Box";
 import classes from "../Users/Users.module.css";
+import {usersAPI} from "../../API/API";
 
 
 
@@ -21,12 +21,12 @@ class UsersComponent extends React.Component {
 
     componentDidMount() {
         this.props.toggleIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-            .then(response => {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(response.data.items)
-                this.props.setTotalUsersCount(response.data.totalCount)
-            })
+        usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
+        .then(data => {
+            this.props.toggleIsFetching(false);
+            this.props.setUsers(data.items)
+            this.props.setTotalUsersCount(data.totalCount)
+        })
     }
 
 
@@ -34,10 +34,10 @@ class UsersComponent extends React.Component {
     onPageChanged = (page) => {
         this.props.toggleIsFetching(true);
         this.props.setCurrentPage(page);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`)
-            .then(response => {
+        usersAPI.getUsers(page,this.props.pageSize)
+            .then(data => {
                 this.props.toggleIsFetching(false);
-                this.props.setUsers(response.data.items)
+                this.props.setUsers(data.items)
             })
 
 

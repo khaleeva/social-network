@@ -4,7 +4,8 @@ import Friends from "./Friends";
 
 let mapStateToProps = (state) => {
     return {
-        users: state.usersPage.users
+        users: state.usersPage.users,
+        isAuth: state.auth.isAuth
     }
 }
 

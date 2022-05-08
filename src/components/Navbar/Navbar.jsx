@@ -8,14 +8,14 @@ import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 
-const Navbar = () => {
-    const userId = 2;
+const Navbar = (props) => {
+
 
     const setActive = ({isActive}) => isActive ? classes.active : '';
 
     return (
         <nav className={classes.nav}>
-            <NavLink to={`/profile/about/${userId}`} className={setActive}><PersonOutlineIcon/></NavLink>
+            <NavLink to={`/profile/about/${props.id}`} className={setActive}><PersonOutlineIcon/></NavLink>
             <NavLink to={'/users'} className={setActive}><PeopleOutlineIcon/></NavLink>
             <NavLink to={'/dialogs'} className={setActive}><MailOutlineIcon/></NavLink>
             <NavLink to={'/news'} className={setActive}><NewspaperIcon/></NavLink>
