@@ -3,8 +3,6 @@ import classes from './Users.module.css'
 import Avatar from "../../MUI/Avatar";
 import {Pagination} from "@mui/material";
 import {NavLink} from "react-router-dom";
-import {followAPI} from "../../API/API";
-
 
 const Users = (props) => {
 
@@ -43,28 +41,13 @@ const Users = (props) => {
                         </div>
                         <div className={classes.usersCard}>
                             {user.followed ?
-                                <button disabled = {props.followingInProgress} className={classes.followButton} onClick={() => {
-                                    props.toggleFollowingInProgress(true);
-                                    followAPI.getUnfollowUser(user.id)
-                                    .then(data => {
-                                        if(data.resultCode === 0){
-                                            props.unfollow(user.id)
-                                        }
-                                        props.toggleFollowingInProgress(false);
-                                    })
-                                }}>Unfollowing</button>
+                                <button disabled = {props.followingInProgress.some(id => id === user.id)} className={classes.followButton}
+                                        onClick={() => {props.unfollow(user.id)}}>Unfollowing</button>
 
 
-                                : <button disabled = {props.followingInProgress} className={classes.followButton} onClick={() => {
-                                    props.toggleFollowingInProgress(true);
-                                    followAPI.getFollowUser(user.id)
-                                        .then(data => {
-                                            if(data.resultCode === 0){
-                                                props.follow(user.id)
-                                            }
-                                            props.toggleFollowingInProgress(false);
-                                        })
-                                }}>Following</button>}
+                                : <button disabled = {props.followingInProgress.some(id => id === user.id)}
+                                          className={classes.followButton}
+                                          onClick={() => {props.follow(user.id)}}>Following</button>}
 
                             <div className={classes.usersInfo}>
                                 <NavLink to={`/profile/about/${user.id}`}>

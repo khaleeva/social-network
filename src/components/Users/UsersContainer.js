@@ -3,44 +3,27 @@ import {connect} from "react-redux";
 import Users from "./Users";
 import {
     follow, toggleFollowingInProgress,
-    setCurrentPage,
-    setTotalUsersCount,
-    setUsers,
-    toggleIsFetching,
-    unfollow
+    unfollow, getUsersThunkCreator
 } from "../../redux/users-reducer";
 import React from "react";
 import {CircularProgress} from "@mui/material";
 import Box from "@mui/material/Box";
 import classes from "../Users/Users.module.css";
-import {usersAPI} from "../../API/API";
+
 
 
 
 class UsersComponent extends React.Component {
 
     componentDidMount() {
-        this.props.toggleIsFetching(true);
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
-        .then(data => {
-            this.props.toggleIsFetching(false);
-            this.props.setUsers(data.items)
-            this.props.setTotalUsersCount(data.totalCount)
-        })
+        this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize);
+
     }
 
 
 
     onPageChanged = (page) => {
-        this.props.toggleIsFetching(true);
-        this.props.setCurrentPage(page);
-        usersAPI.getUsers(page,this.props.pageSize)
-            .then(data => {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(data.items)
-            })
-
-
+        this.props.getUsersThunkCreator(page, this.props.pageSize);
     }
 
 
@@ -53,7 +36,7 @@ class UsersComponent extends React.Component {
                         <CircularProgress />
                     </Box> : <Users currentPage={this.props.currentPage}
                                     totalUsersCount={this.props.totalUsersCount}
-                                    pageSize={this.props.pageSize}
+                                     pageSize={this.props.pageSize}
                                     onPageChanged={this.onPageChanged}
                                     users={this.props.users}
                                     follow={this.props.follow}
@@ -85,7 +68,7 @@ let mapStateToProps = (state) => {
 
 
 const UsersContainer = connect(mapStateToProps, {
-    follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching, toggleFollowingInProgress
+    follow, unfollow, toggleFollowingInProgress, getUsersThunkCreator,
 })(UsersComponent);
 
 export default UsersContainer;
