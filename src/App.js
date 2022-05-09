@@ -19,6 +19,7 @@ import PhotoContainer from "./components/Photos/PhotoContainer";
 import FriendsContainer from "./components/Friends/FriendContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import NavBarContainer from "./components/Navbar/NavBarContainer";
+import Login from "./components/Login/Login";
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
                   <Route path="settings" element={<Setting/>}/>
                   <Route path="privacy" element={<Privacy/>}/>
                   <Route path="terms" element={<Terms/>}/>
+                  <Route path="login" element={<Login/>}/>
 
               </Routes>
           </div>

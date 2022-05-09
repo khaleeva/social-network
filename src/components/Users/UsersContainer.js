@@ -9,6 +9,8 @@ import React from "react";
 import {CircularProgress} from "@mui/material";
 import Box from "@mui/material/Box";
 import classes from "../Users/Users.module.css";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 
 
@@ -48,8 +50,6 @@ class UsersComponent extends React.Component {
                 </div>
             </main>
         )
-
-
     }
 }
 
@@ -61,14 +61,17 @@ let mapStateToProps = (state) => {
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
         followingInProgress: state.usersPage.followingInProgress
-
-
     }
 }
 
 
-const UsersContainer = connect(mapStateToProps, {
-    follow, unfollow, toggleFollowingInProgress, getUsersThunkCreator,
-})(UsersComponent);
+export default compose(
+    connect(mapStateToProps, {
+        follow, unfollow, toggleFollowingInProgress,
+        getUsersThunkCreator}),
+    withAuthRedirect
 
-export default UsersContainer;
+)(UsersComponent);
+
+
+
