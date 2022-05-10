@@ -10,7 +10,6 @@ import Setting from "./components/Setting/Setting";
 import Footer from "./components/Footer/Footer";
 import Privacy from "./components/Privacy/Privacy";
 import Terms from "./components/Terms/Terms";
-import About from "./components/About/About";
 import MyPostsContainer from "./components/Profile/MyPost/MyPostContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
@@ -20,6 +19,7 @@ import FriendsContainer from "./components/Friends/FriendContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import NavBarContainer from "./components/Navbar/NavBarContainer";
 import Login from "./components/Login/Login";
+import AboutContainer from "./components/About/AboutContainer";
 
 
 function App() {
@@ -32,9 +32,9 @@ function App() {
               <Routes>
                   <Route path='/' element={<News/>}/>
                   <Route path="/profile/*" element={<ProfileContainer/>}>
-                      <Route index element={<About />}/>
-                      <Route path="about" element={<About/>}/>
-                      <Route path="about/:userId" element={<About/>}/>
+                      <Route index element={<AboutContainer/>}/>
+                      <Route path="about" element={<AboutContainer/>}/>
+                      <Route path="about/:userId" element={<AboutContainer/>}/>
                       <Route path="posts" element={<MyPostsContainer />}/>
                       <Route path="friends" element={<FriendsContainer />}/>
                       <Route path="photos" element={<PhotoContainer/>}/>

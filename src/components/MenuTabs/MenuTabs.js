@@ -10,7 +10,7 @@ const MenuTabs = (props) => {
     return (
         <>
             <div className={classes.menuTabs}>
-                <NavLink to={`about`} className={setActive}>About</NavLink>
+                <NavLink to={`about/${props.profile.userId}`} className={setActive} >About</NavLink>
                 <NavLink to={"posts"} className={setActive}>TimeLine</NavLink>
                 <NavLink to={"friends"} className={setActive}>Friends</NavLink>
                 <NavLink to={"photos"} className={setActive}>Photos</NavLink>

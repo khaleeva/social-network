@@ -1,9 +1,10 @@
 import React from 'react';
 import classes from "./Profile.module.css"
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import MenuTabs from "../MenuTabs/MenuTabs";
 import Box from "@mui/material/Box";
 import {CircularProgress} from "@mui/material";
+import MenuTabs from "../MenuTabs/MenuTabs";
+
 
 
 
@@ -22,7 +23,7 @@ const Profile = (props) => {
 
             <main className={classes.main}>
                 <ProfileInfo profile={props.profile} />
-                <MenuTabs profile={props.profile}/>
+                <MenuTabs profile={props.profile} />
             </main>
     );
 };

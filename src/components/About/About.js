@@ -1,11 +1,19 @@
-import React from 'react';
+import React  from 'react';
+import ProfileStatus from "../Profile/ProfileInfo/ProfileStatus";
 
-const About = () => {
+
+
+const About = (props) => {
+
+
+
     return (
-        <div>
-            fffff
-        </div>
+
+            <ProfileStatus {...props} status={props.status}
+                           updateStatus={props.updateStatus}/>
+
     );
 };
 
 export default About;
+

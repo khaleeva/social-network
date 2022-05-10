@@ -6,9 +6,6 @@ import Avatar from "@mui/material/Avatar";
 
 const ProfileInfo = (props) => {
 
-
-
-
     const profileInfo =[
         {
             id:1,
