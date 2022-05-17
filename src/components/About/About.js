@@ -9,7 +9,7 @@ const About = (props) => {
 
     return (
 
-            <ProfileStatus {...props} status={props.status}
+            <ProfileStatus status={props.status}
                            updateStatus={props.updateStatus}/>
 
     );

@@ -7,7 +7,7 @@ import Message from "./Message";
 
 let newMessage = React.createRef();
 
-const Dialogs = ({dialogs, messages, newMessageText, addMessageDialogs, dialogsChange, isAuth}) => {
+const Dialogs = ({dialogs, messages, newMessageText, addMessageDialogs, dialogsChange}) => {
     let onAddMessageDialogs = () => {
         addMessageDialogs();
     }
@@ -16,9 +16,6 @@ const Dialogs = ({dialogs, messages, newMessageText, addMessageDialogs, dialogsC
         let text = newMessage.current.value;
         dialogsChange(text);
     }
-
-
-
 
     return (
         <main className={classes.main}>

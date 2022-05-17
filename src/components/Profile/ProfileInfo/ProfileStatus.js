@@ -1,13 +1,18 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+
 
 const ProfileStatus = (props) => {
+
 
     const [editMode, setEditMode] = useState(false);
     const [status, setStatus] = useState(props.status);
 
+    useEffect( () => {
+        setStatus(props.status);
+    }, [props.status] );
+
     const activateEditMode = () => {
         setEditMode(true)
-
     }
 
     const deactivateEditMode = () => {
@@ -21,14 +26,16 @@ const ProfileStatus = (props) => {
     }
 
     return (
+
         <>
             {editMode ? <input
+                    type={'text'}
                     autoFocus={true}
                     onBlur={deactivateEditMode}
                     onChange={onStatusChange}
-                    value={status}/>
+                    value={ status }/>
 
-            : <div onDoubleClick={activateEditMode}>{status || "add status"}</div>}
+            : <div onDoubleClick={activateEditMode}> {props.status || "no status"} </div>}
 
         </>
     );

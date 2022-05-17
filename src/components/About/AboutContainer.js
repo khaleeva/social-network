@@ -12,7 +12,9 @@ const AboutContainer = (props) =>{
     })
 
     return (
-        <About {...props}/>
+        <About status={props.status}
+               updateStatus={props.updateStatus}
+        />
     )
 }
 

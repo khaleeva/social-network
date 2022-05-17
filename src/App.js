@@ -18,8 +18,8 @@ import PhotoContainer from "./components/Photos/PhotoContainer";
 import FriendsContainer from "./components/Friends/FriendContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import NavBarContainer from "./components/Navbar/NavBarContainer";
-import Login from "./components/Login/Login";
 import AboutContainer from "./components/About/AboutContainer";
+import Login from "./components/Login/Login"
 
 
 function App() {
