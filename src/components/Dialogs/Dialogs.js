@@ -2,20 +2,10 @@ import React from 'react';
 import classes from "./Dialogs.module.css";
 import DialogItem from "./DialogItem";
 import Message from "./Message";
+import NewMessageForm from "../Forms/NewMessageForm";
 
 
-
-let newMessage = React.createRef();
-
-const Dialogs = ({dialogs, messages, newMessageText, addMessageDialogs, dialogsChange}) => {
-    let onAddMessageDialogs = () => {
-        addMessageDialogs();
-    }
-
-    let onDialogsChange = () => {
-        let text = newMessage.current.value;
-        dialogsChange(text);
-    }
+const Dialogs = ({dialogs, messages,  addMessageDialogs}) => {
 
     return (
         <main className={classes.main}>
@@ -25,10 +15,7 @@ const Dialogs = ({dialogs, messages, newMessageText, addMessageDialogs, dialogsC
                 </div>
                 <div className={classes.messagesItems}>
                     {messages.map((m) => <Message message={m.message} key={m.id} id={m.id}/>)}
-                    <div className={classes.textarea}>
-                        <textarea name="" id="" ref={newMessage} value={newMessageText} onChange={onDialogsChange}/>
-                        <button className={classes.sendButton} onClick={onAddMessageDialogs}>Send</button>
-                    </div>
+                    <NewMessageForm addMessageDialogs={addMessageDialogs}/>
                 </div>
             </div>
         </main>

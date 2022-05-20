@@ -1,4 +1,4 @@
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+
 const SEND_MESSAGE = 'SEND-MESSAGE';
 
 
@@ -18,44 +18,29 @@ let initialState = {
         {id: 5, name: "Bruce", img: "https://kto-zhena.ru/wp-content/uploads/1432274596-bryus-uillis-598x600.jpg", bg:'https://templates.iqonic.design/socialv/bs5/html/dist/assets/images/page-img/profile-bg9.jpg'},
     ],
 
-    newMessageText: "",
+
 }
 const messageReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case SEND_MESSAGE :
-            let newMessage = {
-                id: 6,
-                message: state.newMessageText
-            }
+            let newMessage = action.message;
             return {
                 ...state,
-                newMessageText: '',
-                messages: [...state.messages, newMessage]
+                messages: [...state.messages, {id : 6, message: newMessage}]
             }
-        case UPDATE_NEW_MESSAGE_TEXT :
-            return {
-                ...state,
-                newMessageText: action.newText
-            }
-
         default :
             return state;
     }
 }
 
-export const sendMessageActionCreator = () => {
+export const sendMessageActionCreator = (message) => {
     return {
-        type: SEND_MESSAGE
+        type: SEND_MESSAGE,
+        message
     }
 }
 
-export const updateNewDialogsTextActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_MESSAGE_TEXT,
-        newText: text
-    }
-}
 
 
 

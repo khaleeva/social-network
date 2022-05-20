@@ -6,7 +6,7 @@ import {profileThunkCreator, setUserProfile} from "../../redux/profile-reducer";
 import {useParams} from "react-router-dom";
 import {compose} from "redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
-// import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+
 
 
 const ProfileContainer = ({profile, profileThunkCreator}) => {

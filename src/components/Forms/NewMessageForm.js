@@ -1,18 +1,34 @@
 import React from 'react';
 import classes from "../Dialogs/Dialogs.module.css";
+import { useFormik } from 'formik';
 
-let newMessage = React.createRef();
 
 
-const NewMessageForm = ({newMessageText, onDialogsChange, onAddMessageDialogs}) => {
+
+const NewMessageForm = (props) => {
+
+    const formik = useFormik({
+        initialValues: {
+           message:'',
+        },
+        onSubmit: values => {
+           props.addMessageDialogs(formik.values.message)
+        },
+    });
+    
 
     return (
-        <div className={classes.textarea}>
-            <textarea name="" id="" ref={newMessage} value={newMessageText} onChange={onDialogsChange}/>
-            <button className={classes.sendButton} onClick={onAddMessageDialogs}>Send</button>
-        </div>
+        <form className={classes.textarea} onSubmit={formik.handleSubmit}>
+            <textarea name="message" id="message" value={formik.values.text} onChange={formik.handleChange}/>
+            <button type="submit" className={classes.sendButton} >Send</button>
+        </form>
 
     );
 };
 
 export default NewMessageForm;
+
+
+
+
+
