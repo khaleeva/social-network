@@ -2,12 +2,12 @@
 .app-wrapper{
   width: 100%;
   display: grid;
-  grid-template-columns: 0.6fr 10fr 0.6fr;
+  grid-template-columns: 0.6fr 10fr;
   grid-template-rows: 60px 1fr 60px;
   grid-template-areas:
-  "header header header"
-  "nav main side"
-  "footer footer footer";
+  "header header"
+  "nav main "
+  "footer footer";
   position: relative;
   overflow: hidden;
   min-height: 100vh;
@@ -47,6 +47,20 @@
   color:#50b5ff !important;
   font-weight: bold;
 }
+
+.Mui-focused{
+  color:#50b5ff !important;
+
+}
+
+.Mui-checked{
+  color:#50b5ff !important;
+}
+
+.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color:#50b5ff !important;
+}
+
 
 
 

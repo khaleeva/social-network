@@ -8,6 +8,9 @@ photos: [
     {id: 3, bg:'https://templates.iqonic.design/socialv/bs5/html/dist/assets/images/page-img/profile-bg7.jpg', description:''},
     {id: 4, bg:'https://templates.iqonic.design/socialv/bs5/html/dist/assets/images/page-img/profile-bg6.jpg', description:''},
     {id: 5, bg:'https://templates.iqonic.design/socialv/bs5/html/dist/assets/images/page-img/profile-bg9.jpg', description:''},
+    {id: 6, bg:'https://images.pexels.com/photos/5935227/pexels-photo-5935227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', description: ''},
+    {id: 7, bg:'https://images.pexels.com/photos/5935239/pexels-photo-5935239.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', description: ''},
+
 ]
 }
 

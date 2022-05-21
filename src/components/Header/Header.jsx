@@ -19,7 +19,7 @@ const Header = (props) => {
                     <div className={classes.user}>
                         <MenuList login={props.login} id={props.id} isAuth={props.isAuth} logout={props.logoutThunk}/>
                     </div>
-                    : <NavLink to={'/login'}>Login</NavLink>
+                    : <NavLink to={'/login'}>Sign in</NavLink>
 
                 }
 

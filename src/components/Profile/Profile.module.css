@@ -1,7 +1,6 @@
 
 .main{
     grid-area: main;
-    /*background-color: #1e2745;*/
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 2fr 74px auto;
