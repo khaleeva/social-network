@@ -10,7 +10,7 @@ import Setting from "./components/Setting/Setting";
 import Footer from "./components/Footer/Footer";
 import Privacy from "./components/Privacy/Privacy";
 import Terms from "./components/Terms/Terms";
-import MyPostsContainer from "./components/Profile/MyPost/MyPostContainer";
+import MyPostsContainer from "./components/Profile/MyPost/Post/MyPostContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 // import SideBarContainer from "./components/Friends/SideBarContainer";

@@ -7,10 +7,10 @@ const SET_STATUS = 'SET_STATUS';
 
 let initialState = {
     posts: [
-        {id: 1, post: 'Hello, how are you?'},
-        {id: 2, post: 'It\'s my first post'},
-        {id: 3, post: 'Hello'},
-        {id: 4, post: 'today is fine'},
+        {id: 1, post: 'Hello, how are you?', likes: 1, date:''},
+        {id: 2, post: 'It\'s my first post', likes: 2, date:''},
+        {id: 3, post: 'Hello', likes: 3, date:''},
+        {id: 4, post: 'today is fine', likes: 120, date:''},
     ],
     profile: null,
     status: '',
@@ -23,7 +23,7 @@ const profileReducer = (state = initialState, action) => {
         case ADD_POST :
             let newPost = {
                 id: 5,
-                post: action.newPostText
+                post: action.post
             }
             return {
                 ...state,

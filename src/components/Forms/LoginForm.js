@@ -6,9 +6,11 @@ import * as Yup from "yup"
 import {Checkbox, FormControlLabel, FormGroup, TextField} from "@mui/material";
 import Box from "@mui/material/Box";
 
+
+
 const LoginForm = (props) => {
 
-    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
 
     const formik = useFormik({
         initialValues: {
@@ -17,9 +19,10 @@ const LoginForm = (props) => {
             rememberMe: false,
         },
 
-        // validationSchema: Yup.object({
-        //     email: Yup.string
-        // }),
+        validationSchema:Yup.object().shape({
+            email: Yup.string().email('Invalid email').required('Required'),
+            password: Yup.string().required('Required')
+        }),
 
 
         onSubmit: values => {
@@ -30,7 +33,6 @@ const LoginForm = (props) => {
         },
     });
 
-    console.log(formik.values)
 
     return (
         // <form onSubmit={formik.handleSubmit} className={classes.form}>
@@ -80,23 +82,36 @@ const LoginForm = (props) => {
             sx={{
                 '& > :not(style)': { m: 1, width: '30ch' },
             }}
-            noValidate
-            autoComplete="off"
+            validate
+            autoComplete="on"
         >
 
 
+            { formik.errors.email ?
+                <TextField className={classes.formItem}
+                           error
+                           id="outlined-error"
+                           value={formik.values.email}
+                           label={formik.errors.email}
+                           size="small"
+                           variant="outlined"
+                           name="email"
+                           type="email"
+                           onChange={formik.handleChange}
 
-            <TextField className={classes.formItem}
-                id="outlined-basic"
-                label="Enter Email"
-                size="small"
-                variant="outlined"
-                name="email"
-                type="email"
-                onChange={formik.handleChange}
-                value={formik.values.email}
 
-            />
+                />
+                : <TextField className={classes.formItem}
+                             id="outlined-basic"
+                             label="Enter Email"
+                             size="small"
+                             variant="outlined"
+                             name="email"
+                             type="email"
+                             onChange={formik.handleChange}
+                             value={formik.values.email}
+                />
+            }
 
             <TextField className={classes.formItem}
                        id="outlined-basic"

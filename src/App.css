@@ -61,6 +61,24 @@
   border-color:#50b5ff !important;
 }
 
+.MuiFormControl-root label{
+  color: #50b5ff;
+}
+
+
+
+.MuiFormControl-root fieldset {
+  border-color: #50b5ff;
+  background: rgba(80,181,255,.2);
+}
+
+/*.MuiSvgIcon-root{*/
+/*  color: #50b5ff;*/
+/*  cursor:pointer;*/
+/*}*/
+
+
+
 
 
 

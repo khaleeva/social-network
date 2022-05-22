@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from "./MyPosts.module.css"
-import Post from "./Post/Post";
-import PostForm from "../../Forms/PostForm";
+import PostForm from "../../../Forms/PostForm";
+import Post from "./Post";
 
 
 
@@ -9,10 +9,9 @@ const MyPosts = ({posts, addPost}) => {
 
     return (
         <div className={classes.posts}>
-            My post
             <PostForm addPost={addPost}/>
-            <div >
-                {posts.map((post) => <Post key={post.id} message={post.post}/>)}
+            <div className={classes.postsContainer}>
+                {posts.map((post) => <Post key={post.id} message={post.post} likes={post.likes} date={post.date}/>)}
             </div>
         </div>
 
