@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
+import StatusForm from "../../Forms/StatusForm";
+import classes from "./ProfileInfo.module.css";
 
 
 const ProfileStatus = (props) => {
-
 
     const [editMode, setEditMode] = useState(false);
     const [status, setStatus] = useState(props.status);
@@ -18,7 +19,6 @@ const ProfileStatus = (props) => {
     const deactivateEditMode = () => {
         setEditMode(false);
         props.updateStatus(status)
-
     }
 
     const onStatusChange = (e) => {
@@ -26,16 +26,19 @@ const ProfileStatus = (props) => {
     }
 
     return (
-
         <>
-            {editMode ? <input
+            {editMode ?
+
+                <StatusForm
                     type={'text'}
                     autoFocus={true}
                     onBlur={deactivateEditMode}
                     onChange={onStatusChange}
-                    value={ status }/>
+                    value={ status }
 
-            : <div onDoubleClick={activateEditMode}> {props.status || "no status"} </div>}
+                />
+
+            : <div onDoubleClick={activateEditMode} className={classes.statusColor}> {props.status || "no status"} </div>}
 
         </>
     );

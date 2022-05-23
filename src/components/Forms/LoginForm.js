@@ -36,48 +36,6 @@ const LoginForm = (props) => {
 
 
     return (
-        // <form onSubmit={formik.handleSubmit} className={classes.form}>
-        //
-        //
-        //         {/*<input*/}
-        //         {/*    id="email"*/}
-        //         {/*   */}
-        //         {/*/>*/}
-        //
-        //         <TextField id="outlined-basic"
-        //                    label="enter email"
-        //                    variant="outlined"
-        //                    name="email"
-        //                    type="email"
-        //                    onChange={formik.handleChange}
-        //                    value={formik.values.email}
-        //         />
-        //
-        //
-        //     <div className={classes.formItem}>
-        //         <label htmlFor="password">Password</label>
-        //         <input
-        //             id="password"
-        //             name="password"
-        //             type="password"
-        //             placeholder={'password'}
-        //             onChange={formik.handleChange}
-        //             value={formik.values.password}
-        //         />
-        //     </div>
-        //     <div className={classes.checkbox}>
-        //         <input
-        //             id="rememberMe"
-        //             name="rememberMe"
-        //             type="checkbox"
-        //             onChange={formik.handleChange}
-        //             value={formik.values.rememberMe}
-        //         />
-        //         <label htmlFor="email">Remember me</label>
-        //     </div>
-        //     <button type="submit" className={classes.sendButton}>Submit</button>
-        // </form>
-
         <Box onSubmit={formik.handleSubmit} className={classes.form}
             component="form"
             sx={{

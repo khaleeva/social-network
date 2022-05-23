@@ -4,7 +4,8 @@ const instance = axios.create({
     withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
     headers: {
-        'API-KEY': 'b429dd9e-7387-49ed-86ad-9db5be2725b1'
+        'API-KEY': 'b429dd9e-7387-49ed-86ad-9db5be2725b1',
+        'Access-Control-Allow-Origin': 'https://khaleeva.github.io'
     }
 })
 
