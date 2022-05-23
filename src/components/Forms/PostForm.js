@@ -1,11 +1,8 @@
 import React from 'react';
-import classes from "../Profile/MyPost/Post/MyPosts.module.css"
 import { useFormik } from 'formik';
 import * as Yup from "yup";
 
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-
+import MultilineTextFields from "../../MUI/MultilineTextFields";
 
 
 const PostForm = (props) => {
@@ -17,7 +14,7 @@ const PostForm = (props) => {
 
         validationSchema:Yup.object().shape({
             post: Yup.string().min(2, 'Too Short!')
-                .max(100, 'Too Long!')
+                .max(100, 'Too Long!').required()
         }),
 
 
@@ -26,82 +23,30 @@ const PostForm = (props) => {
         },
     });
 
-    console.log(formik.values)
-
 
     return (
-        // <form className={classes.textarea} onSubmit={formik.handleSubmit}>
-        //
-        //         <textarea name="post" id="post" cols="30" rows="5"
-        //                   value={formik.values.newPostText}
-        //                   onChange={formik.handleChange}/>
-        //         <button className={classes.sendButton} type="submit">Add post</button>
-        //
-        // </form>
 
-         formik.errors.post ?
-                <Box
-                    component="form"
-                    noValidate
-                    autoComplete="off"
-                    sx={{
-                        '& .MuiTextField-root': { width: '70%'},
-                    }}
-                    className={classes.textarea}
-                    onSubmit={formik.handleSubmit}
-                >
+        formik.errors.post ?
 
-                    <TextField
-                        error
-                        name="post"
-                        id="outlined-multiline-static"
-                        label={formik.errors.post}
-                        multiline
-                        rows={4}
-                        value={formik.values.post}
-                        onChange={formik.handleChange}
-
-                    />
-                     <button className={classes.sendButtonDisabled} type="submit" disabled={true}>Add post</button>
-
-                </Box>
-
-                :
-
-                <Box
-                    component="form"
-                    sx={{
-                        '& .MuiTextField-root': { width: '70%'},
-                    }}
-                    noValidate
-                    autoComplete="off"
-                    className={classes.textarea}
-                    onSubmit={formik.handleSubmit}
-                >
-
-                    <TextField
-                        name="post"
-                        id="outlined-multiline-static"
-                        label="New post"
-                        multiline
-                        rows={4}
-                        value={formik.values.post}
-                        onChange={formik.handleChange}
-
-                    />
-                    <button className={classes.sendButton} type="submit">Add post</button>
-
-                </Box>
-
-
-
-
-
-
-
-
-
-
+            <MultilineTextFields
+                onSubmit={formik.handleSubmit}
+                onChange={formik.handleChange}
+                disabled={true}
+                name={'post'}
+                label={formik.errors.post}
+                value={formik.values.post}
+                className={"sendButtonDisabled"}
+                error
+            /> :
+            <MultilineTextFields
+                onSubmit={formik.handleSubmit}
+                onChange={formik.handleChange}
+                name={'post'}
+                disabled={false}
+                label={'Add post'}
+                value={formik.values.post}
+                className={"sendButton"}
+            />
     );
 };
 

@@ -97,3 +97,14 @@ a{
     background-color: #50b5ff;
     color:white;
 }
+
+
+.sendButtonDisabled{
+    margin-top: 1rem;
+    background: rgba(80,181,255,.7);
+    color:#50b5ff;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    border: 1px solid #50b5ff;
+}

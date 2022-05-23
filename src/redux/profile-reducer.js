@@ -23,7 +23,9 @@ const profileReducer = (state = initialState, action) => {
         case ADD_POST :
             let newPost = {
                 id: 5,
-                post: action.post
+                post: action.post,
+                likes: null,
+                date:''
             }
             return {
                 ...state,

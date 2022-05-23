@@ -16,10 +16,10 @@ const Post = ({message, date, likes}) => {
     let isLike = () =>{
         if (like === false){
             setLike(true)
-            setCount(count - 1)
+            setCount(count + 1)
         } else {
             setLike(false)
-            setCount(count + 1)
+            setCount(count - 1)
         }
 
     }
@@ -30,8 +30,8 @@ const Post = ({message, date, likes}) => {
             <div className={classes.item}>{message}</div>
             <div>
                 <div className={classes.itemLike} >
-                    {like ? <FavoriteBorderIcon className={classes.imgLike} fontSize="small" onClick={isLike}/>
-                        : <FavoriteRoundedIcon className={classes.imgLike} fontSize="small" onClick={isLike} />}
+                    {like ? <FavoriteRoundedIcon className={classes.imgLike} fontSize="small" onClick={isLike} />
+                        : <FavoriteBorderIcon className={classes.imgLike} fontSize="small" onClick={isLike}/> }
                     <span>{count}</span>
                 </div>
                 <div>{date}</div>

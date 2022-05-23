@@ -3,6 +3,7 @@ import classes from './Users.module.css'
 import Avatar from "../../MUI/Avatar";
 import {Pagination} from "@mui/material";
 import {NavLink} from "react-router-dom";
+import MyCustomButton from "../../MUI/MyCustomButton";
 
 const Users = (props) => {
 
@@ -41,13 +42,18 @@ const Users = (props) => {
                         </div>
                         <div className={classes.usersCard}>
                             {user.followed ?
-                                <button disabled = {props.followingInProgress.some(id => id === user.id)} className={classes.followButton}
-                                        onClick={() => {props.unfollow(user.id)}}>Unfollowing</button>
+
+                                <MyCustomButton disabled = {props.followingInProgress.some(id => id === user.id)}
+                                                className={"followButton"}
+                                                onClick={() => {props.unfollow(user.id)}}
+                                >Unfollowing</MyCustomButton>
+
+                                : <MyCustomButton disabled = {props.followingInProgress.some(id => id === user.id)}
+                                                  className={"followButton"}
+                                                  onClick={() => {props.follow(user.id)}}
+                                >Following</MyCustomButton>}
 
 
-                                : <button disabled = {props.followingInProgress.some(id => id === user.id)}
-                                          className={classes.followButton}
-                                          onClick={() => {props.follow(user.id)}}>Following</button>}
 
                             <div className={classes.usersInfo}>
                                 <NavLink to={`/profile/about/${user.id}`}>

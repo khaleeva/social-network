@@ -1,9 +1,7 @@
 import React from 'react';
-import classes from "../Dialogs/Dialogs.module.css";
 import { useFormik } from 'formik';
-
-
-
+import MultilineTextFields from "../../MUI/MultilineTextFields";
+import * as Yup from "yup";
 
 const NewMessageForm = (props) => {
 
@@ -11,6 +9,15 @@ const NewMessageForm = (props) => {
         initialValues: {
            message:'',
         },
+
+        validationSchema:Yup.object().shape({
+            message: Yup.string().min(2, 'Too Short!')
+                .max(100, 'Too Long!').required()
+
+        }),
+
+
+
         onSubmit: values => {
            props.addMessageDialogs(formik.values.message)
         },
@@ -18,10 +25,27 @@ const NewMessageForm = (props) => {
     
 
     return (
-        <form className={classes.textarea} onSubmit={formik.handleSubmit}>
-            <textarea name="message" id="message" value={formik.values.text} onChange={formik.handleChange}/>
-            <button type="submit" className={classes.sendButton} >Send</button>
-        </form>
+
+        formik.errors.message ?
+
+        <MultilineTextFields name={'message'}
+                             value={formik.values.message}
+                             onChange={formik.handleChange}
+                             onSubmit={formik.handleSubmit}
+                             className={"sendButtonDisabled"}
+                             label={formik.errors.message}
+                             error
+
+        />
+            :
+
+            <MultilineTextFields name={'message'}
+                                 value={formik.values.message}
+                                 onChange={formik.handleChange}
+                                 onSubmit={formik.handleSubmit}
+                                 className={"sendButton"}
+                                 label={'Add message'}
+            />
 
     );
 };

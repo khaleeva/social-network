@@ -2,6 +2,7 @@ import React from 'react';
 import classes from "../Users/Users.module.css";
 import {NavLink} from "react-router-dom";
 import Avatar from "../../MUI/Avatar";
+import MyCustomButton from "../../MUI/MyCustomButton";
 
 const Friends = (props) => {
     return (
@@ -29,12 +30,12 @@ const Friends = (props) => {
                             </div>
                             <div className={classes.usersCard}>
                                 {user.followed ?
-                                    <button className={classes.followButton} onClick={() => {
+                                    <MyCustomButton className={"followButton"} onClick={() => {
                                         props.unfollow(user.id)
-                                    }}>Unfollowing</button>
-                                    : <button className={classes.followButton} onClick={() => {
+                                    }}>Unfollowing</MyCustomButton>
+                                    : <MyCustomButton className={"followButton"} onClick={() => {
                                         props.follow(user.id)
-                                    }}>Following</button>}
+                                    }}>Following</MyCustomButton>}
                                 <div className={classes.usersInfo}>
                                     <NavLink to={`/profile/${user.id}`}>
                                         <div className={classes.usersName}>{user.name}</div>

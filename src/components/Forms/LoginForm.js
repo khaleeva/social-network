@@ -5,6 +5,7 @@ import { useFormik } from 'formik';
 import * as Yup from "yup"
 import {Checkbox, FormControlLabel, FormGroup, TextField} from "@mui/material";
 import Box from "@mui/material/Box";
+import MyCustomButton from "../../MUI/MyCustomButton";
 
 
 
@@ -135,7 +136,7 @@ const LoginForm = (props) => {
             </FormGroup>
 
 
-            <button type="submit" className={classes.sendButton}>Submit</button>
+            <MyCustomButton type="submit" className={"loginButton"}>Sign In</MyCustomButton>
         </Box>
     );
 };
