@@ -8,8 +8,6 @@ import classes from "./Login.module.css";
 
 const Login = (props) => {
 
-    console.log(props.photos)
-
     if(props.isAuth) {
         return <Navigate replace to={`/profile/about/${props.id}`} />
     }

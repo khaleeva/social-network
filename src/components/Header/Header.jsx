@@ -6,7 +6,6 @@ import MenuList from "../../MUI/MenuList";
 
 
 const Header = (props) => {
-    console.log(props)
     return (
         <header className={classes.header}>
             <div className={classes.logo}>

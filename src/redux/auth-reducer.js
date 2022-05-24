@@ -34,7 +34,7 @@ export const setAuthUserData = (id, email, login, isAuth) =>
 export const authThunk = () => {
     return (dispatch) => {
 
-        authAPI.auth().then(data => {
+        return authAPI.auth().then(data => {
             if(data.resultCode === 0){
                 let {id, email, login} = data.data;
                 dispatch(setAuthUserData(id, email, login, true));
@@ -47,13 +47,17 @@ export const authThunk = () => {
 }
 
 
-export const loginThunk = (email, password, rememberMe) => {
+export const loginThunk = (email, password, rememberMe, setStatus, setSubmitting) => {
+
     return (dispatch) => {
         authAPI.login(email, password, rememberMe).then(data => {
             if(data.resultCode === 0){
                 dispatch(setAuthUserData(data.data.userId))
-            }
+            } else { setStatus(data.messages[0])}
+            setSubmitting(false)
         })
+
+
     }
 
 }

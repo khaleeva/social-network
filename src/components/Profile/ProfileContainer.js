@@ -10,10 +10,13 @@ import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 
 const ProfileContainer = ({profile, profileThunkCreator}) => {
+
     const {userId} = useParams();
     useEffect(() => {
     profileThunkCreator(userId)
     }, [userId, profileThunkCreator])
+
+
         return (
           <Profile  profile={profile}/>
         )

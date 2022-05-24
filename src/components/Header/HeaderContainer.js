@@ -1,19 +1,10 @@
-import React, {useEffect} from "react";
+import React from "react";
 import Header from "./Header";
 import {connect} from "react-redux";
-import {authThunk, logoutThunk, setAuthUserData} from "../../redux/auth-reducer";
+import {logoutThunk} from "../../redux/auth-reducer";
 
 
 const HeaderContainer = (props) => {
-
-
-    useEffect(() => {
-        props.authThunk();
-    })
-
-
-
-
 
 
     return (
@@ -32,5 +23,5 @@ let mapStateToProps = (state) => (
 )
 
 
-export default connect(mapStateToProps, {setAuthUserData, authThunk, logoutThunk})(HeaderContainer);
+export default connect(mapStateToProps, {logoutThunk})(HeaderContainer);
 

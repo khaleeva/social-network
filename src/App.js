@@ -3,7 +3,7 @@ import './App.css';
 import HeaderContainer from "./components/Header/HeaderContainer";
 // import Navbar from "./components/Navbar/Navbar";
 import {Route, Routes} from "react-router-dom";
-import React from "react";
+import React, {useEffect} from "react";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Setting from "./components/Setting/Setting";
@@ -20,11 +20,27 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 import NavBarContainer from "./components/Navbar/NavBarContainer";
 import AboutContainer from "./components/About/AboutContainer";
 import Login from "./components/Login/Login"
+import {connect} from "react-redux";
+// import {authThunk} from "./redux/auth-reducer";
+import {initializeApp} from "./redux/app-reducer";
+import {CircularProgress} from "@mui/material";
+import Box from "@mui/material/Box";
 
 
 
 
-const App = () => {
+const App = (props) => {
+
+    useEffect(() => {
+        props.initializeApp();
+    })
+
+    if (!props.initialized) {
+        return <Box sx={{ display: 'flex', justifyContent: 'center', alignItems:'center', padding:'20px'}}>
+            <CircularProgress />
+        </Box>
+    }
+
 
     return (
        <div className="app-wrapper">
@@ -56,13 +72,18 @@ const App = () => {
     )
 }
 
+let mapStateToProps = (state) => (
+    {
+        initialized: state.app.initialized,
+        isAuth: state.auth.isAuth
+
+    }
+)
 
 
 
 
 
-
-
-export default App;
+export default connect(mapStateToProps, {initializeApp})(App);
 
 
