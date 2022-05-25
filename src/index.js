@@ -12,13 +12,15 @@ import {Provider} from "react-redux";
         <React.StrictMode>
             <BrowserRouter>
                 <Provider store={store}>
-                    <App />
+                    <App/>
                 </Provider>
             </BrowserRouter>
         </React.StrictMode>,
         document.getElementById('root')
 
     );
+
+
 
 
 

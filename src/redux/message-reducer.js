@@ -1,5 +1,5 @@
 
-const SEND_MESSAGE = 'SEND-MESSAGE';
+const SEND_MESSAGE = 'social-network/messageReducer/SEND-MESSAGE';
 
 
 let initialState = {

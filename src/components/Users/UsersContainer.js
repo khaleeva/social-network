@@ -1,57 +1,47 @@
-
 import {connect} from "react-redux";
 import Users from "./Users";
-import {
-    follow, toggleFollowingInProgress,
-    unfollow, getUsersThunkCreator
-} from "../../redux/users-reducer";
-import React from "react";
-import {CircularProgress} from "@mui/material";
-import Box from "@mui/material/Box";
+import {follow, getUsersThunkCreator, toggleFollowingInProgress, unfollow} from "../../redux/users-reducer";
+import React, {useEffect} from "react";
 import classes from "../Users/Users.module.css";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import Preloader from "../../MUI/Preloader";
 
 
+const UsersContainer = ({
+                            users, pageSize, totalUsersCount, currentPage, isFetching, followingInProgress,
+                            getUsersThunkCreator, toggleFollowingInProgress, follow, unfollow
+                        }) => {
 
+    useEffect(() => {
+        getUsersThunkCreator(currentPage, pageSize);
+    }, [pageSize, currentPage, getUsersThunkCreator])
 
-class UsersComponent extends React.Component {
-
-    componentDidMount() {
-        this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize);
-
+    const onPageChanged = (page) => {
+        getUsersThunkCreator(page, pageSize);
     }
 
-
-
-    onPageChanged = (page) => {
-        this.props.getUsersThunkCreator(page, this.props.pageSize);
-    }
-
-
-    render() {
-        return (
-            <main className={classes.main}>
-                <div className={classes.mainUsersContainer}>
-                {this.props.isFetching ?
-                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems:'center', padding:'20px'}}>
-                        <CircularProgress />
-                    </Box> : <Users currentPage={this.props.currentPage}
-                                    totalUsersCount={this.props.totalUsersCount}
-                                     pageSize={this.props.pageSize}
-                                    onPageChanged={this.onPageChanged}
-                                    users={this.props.users}
-                                    follow={this.props.follow}
-                                    unfollow={this.props.unfollow}
-                                    followingInProgress={this.props.followingInProgress}
-                                    toggleFollowingInProgress = {this.props.toggleFollowingInProgress}
+    return (
+        <main className={classes.main}>
+            <div className={classes.mainUsersContainer}>
+                {isFetching ?
+                    <Preloader/>
+                    : <Users currentPage={currentPage}
+                              totalUsersCount={totalUsersCount}
+                              pageSize={pageSize}
+                              onPageChanged={onPageChanged}
+                              users={users}
+                              follow={follow}
+                              unfollow={unfollow}
+                              followingInProgress={followingInProgress}
+                              toggleFollowingInProgress={toggleFollowingInProgress}
                     />
                 }
-                </div>
-            </main>
-        )
-    }
-}
+            </div>
+        </main>
+    )
+
+};
 
 let mapStateToProps = (state) => {
     return {
@@ -64,14 +54,27 @@ let mapStateToProps = (state) => {
     }
 }
 
-
 export default compose(
     connect(mapStateToProps, {
         follow, unfollow, toggleFollowingInProgress,
-        getUsersThunkCreator}),
+        getUsersThunkCreator
+    }),
     withAuthRedirect
+)(UsersContainer);
 
-)(UsersComponent);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,12 +1,11 @@
-
 import {authThunk} from "./auth-reducer";
 
 
-const INITIALIZED_SUCCESS = "SET_USER_DATA";
+const INITIALIZED_SUCCESS = "social-network/appReducer/SET_USER_DATA";
 
 
 let initialState = {
-   initialized : false
+    initialized: false
 
 }
 
@@ -15,10 +14,11 @@ const appReducer = (state = initialState, action) => {
         case INITIALIZED_SUCCESS:
             return {
                 ...state,
-                initialized : true
+                initialized: true
             }
 
-        default: return state
+        default:
+            return state
     }
 }
 
@@ -28,24 +28,15 @@ export const initializedSuccess = () =>
 
 //thunk
 
-export const initializeApp = () => {
-    return (dispatch) => {
+export const initializeApp = () => (dispatch) => {
 
-        let promise = dispatch(authThunk());
+    let promise = dispatch(authThunk());
 
-        Promise.all([promise])
-            .then(() => {
-                dispatch(initializedSuccess());
-            });
-
-
-    }
-
+    Promise.all([promise])
+        .then(() => {
+            dispatch(initializedSuccess());
+        });
 }
-
-
-
-
 
 
 export default appReducer;

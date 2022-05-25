@@ -9,9 +9,9 @@ import MenuTabs from "../MenuTabs/MenuTabs";
 
 
 
-const Profile = (props) => {
+const Profile = ({profile}) => {
 
-    if(!props.profile){
+    if(!profile){
         return (
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems:'center', padding:'20px'}}>
                 <CircularProgress />
@@ -22,8 +22,8 @@ const Profile = (props) => {
     return (
 
             <main className={classes.main}>
-                <ProfileInfo profile={props.profile} />
-                <MenuTabs profile={props.profile} />
+                <ProfileInfo profile={profile} />
+                <MenuTabs profile={profile} />
             </main>
     );
 };

@@ -1,7 +1,7 @@
 import {authAPI} from "../API/API";
 
 
-const SET_USER_DATA = "SET_USER_DATA";
+const SET_USER_DATA = "social-network/authReducer/SET_USER_DATA";
 
 
 let initialState = {
@@ -31,46 +31,32 @@ export const setAuthUserData = (id, email, login, isAuth) =>
 
 //thunk
 
-export const authThunk = () => {
-    return (dispatch) => {
-
-        return authAPI.auth().then(data => {
-            if(data.resultCode === 0){
-                let {id, email, login} = data.data;
-                dispatch(setAuthUserData(id, email, login, true));
-            }
-
-        })
-
+export const authThunk = () => async (dispatch) => {
+    let data = await authAPI.auth();
+    if (data.resultCode === 0) {
+        let {id, email, login} = data.data;
+        dispatch(setAuthUserData(id, email, login, true));
     }
-
 }
 
 
-export const loginThunk = (email, password, rememberMe, setStatus, setSubmitting) => {
+export const loginThunk = (email, password, rememberMe, setStatus, setSubmitting) => async (dispatch) => {
 
-    return (dispatch) => {
-        authAPI.login(email, password, rememberMe).then(data => {
-            if(data.resultCode === 0){
-                dispatch(setAuthUserData(data.data.userId))
-            } else { setStatus(data.messages[0])}
-            setSubmitting(false)
-        })
-
-
+    let data = await authAPI.login(email, password, rememberMe);
+    if (data.resultCode === 0) {
+        dispatch(setAuthUserData(data.data.userId))
+    } else {
+        setStatus(data.messages[0])
     }
+    setSubmitting(false)
 
 }
 
-export const logoutThunk = () => {
-    return (dispatch) => {
-        authAPI.logout().then(data => {
-            if(data.resultCode === 0){
-                dispatch(setAuthUserData(null, null, null, false))
-            }
+export const logoutThunk = () => async (dispatch) => {
 
-        })
-
+    let data = await authAPI.logout();
+    if (data.resultCode === 0) {
+        dispatch(setAuthUserData(null, null, null, false))
     }
 
 }

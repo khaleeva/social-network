@@ -3,14 +3,14 @@ import ProfileStatus from "../Profile/ProfileInfo/ProfileStatus";
 
 
 
-const About = (props) => {
+const About = ({status, updateStatus}) => {
 
 
 
     return (
 
-            <ProfileStatus status={props.status}
-                           updateStatus={props.updateStatus}/>
+            <ProfileStatus status={status}
+                           updateStatus={updateStatus}/>
 
     );
 };

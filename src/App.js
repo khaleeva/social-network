@@ -1,4 +1,3 @@
-
 import './App.css';
 import HeaderContainer from "./components/Header/HeaderContainer";
 // import Navbar from "./components/Navbar/Navbar";
@@ -21,26 +20,19 @@ import NavBarContainer from "./components/Navbar/NavBarContainer";
 import AboutContainer from "./components/About/AboutContainer";
 import Login from "./components/Login/Login"
 import {connect} from "react-redux";
-// import {authThunk} from "./redux/auth-reducer";
 import {initializeApp} from "./redux/app-reducer";
-import {CircularProgress} from "@mui/material";
-import Box from "@mui/material/Box";
+import Preloader from "./MUI/Preloader";
 
 
-
-
-const App = (props) => {
+const App = ({initializeApp, initialized}) => {
 
     useEffect(() => {
-        props.initializeApp();
+        initializeApp();
     })
 
-    if (!props.initialized) {
-        return <Box sx={{ display: 'flex', justifyContent: 'center', alignItems:'center', padding:'20px'}}>
-            <CircularProgress />
-        </Box>
+    if (!initialized) {
+        return <Preloader/>
     }
-
 
     return (
        <div className="app-wrapper">

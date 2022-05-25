@@ -8,7 +8,7 @@ const Photos = ({photos}) => {
             <div className={classes.photoContainer}>
                 {photos.map((photo) =>
                     <div key={photo.id} className={classes.photoItem}>
-                        <img src={photo.bg} alt=""/>
+                        <img src={photo.bg} alt="profile-img"/>
                     </div>)}
             </div>
         </>

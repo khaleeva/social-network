@@ -5,15 +5,15 @@ import {getStatus, updateStatus} from "../../redux/profile-reducer";
 import {useEffect} from "react";
 
 
-const AboutContainer = (props) =>{
+const AboutContainer = ({profile, status, updateStatus, getStatus}) =>{
 
     useEffect(() => {
-        props.getStatus(props.profile.userId)
+        getStatus(profile.userId)
     })
 
     return (
-        <About status={props.status}
-               updateStatus={props.updateStatus}
+        <About status={status}
+               updateStatus={updateStatus}
         />
     )
 }

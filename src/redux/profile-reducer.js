@@ -1,16 +1,17 @@
 import {profileAPI} from "../API/API";
 
-const ADD_POST = 'ADD-POST';
-const SET_USER_PROFILE = 'SET-USER-PROFILE';
-const SET_STATUS = 'SET_STATUS';
+const ADD_POST = 'social-network/profileReducer/ADD-POST';
+const SET_USER_PROFILE = 'social-network/profileReducer/SET-USER-PROFILE';
+const SET_STATUS = 'social-network/profileReducer/SET_STATUS';
+const DELETE_POST = 'social-network/profileReducer/DELETE_POST'
 
 
 let initialState = {
     posts: [
-        {id: 1, post: 'Hello, how are you?', likes: 1, date:''},
-        {id: 2, post: 'It\'s my first post', likes: 2, date:''},
-        {id: 3, post: 'Hello', likes: 3, date:''},
-        {id: 4, post: 'today is fine', likes: 120, date:''},
+        {id: 1, post: 'Hello, how are you?', likes: 1, date: ''},
+        {id: 2, post: 'It\'s my first post', likes: 2, date: ''},
+        {id: 3, post: 'Hello', likes: 3, date: ''},
+        {id: 4, post: 'today is fine', likes: 120, date: ''},
     ],
     profile: null,
     status: '',
@@ -25,7 +26,7 @@ const profileReducer = (state = initialState, action) => {
                 id: 5,
                 post: action.post,
                 likes: null,
-                date:''
+                date: ''
             }
             return {
                 ...state,
@@ -44,6 +45,11 @@ const profileReducer = (state = initialState, action) => {
                 status: action.status
             }
 
+        case DELETE_POST:
+            return {
+                ...state, posts: state.posts.filter(post => post.id !== action.postId)
+            }
+
         default :
             return state;
     }
@@ -54,6 +60,14 @@ export const addPostActionCreator = (post) => {
     return {
         type: ADD_POST,
         post
+    }
+}
+
+
+export const deletePost = (postId) => {
+    return {
+        type: DELETE_POST,
+        postId
     }
 }
 
@@ -74,35 +88,22 @@ export const setStatus = (status) => {
 
 //thunk
 
-export const profileThunkCreator = (userId) => {
-    return (dispatch) => {
-        profileAPI.profile(userId)
-            .then(data => {
-                dispatch(setUserProfile(data));
-            })
-    }
+export const profileThunkCreator = (userId) => async (dispatch) => {
+    let data = await profileAPI.profile(userId);
+    dispatch(setUserProfile(data));
 }
 
-export const getStatus = (userId) => {
-    return (dispatch) => {
-        profileAPI.getStatus(userId)
-            .then(data => {
-                dispatch(setStatus(data));
-            })
-    }
+
+export const getStatus = (userId) => async (dispatch) => {
+    let data = await profileAPI.getStatus(userId)
+    dispatch(setStatus(data));
 }
 
-export const updateStatus = (status) => {
-    return (dispatch) => {
-        profileAPI.updateStatus(status)
-            .then(data => {
-                if(data.resultCode === 0){
-                    dispatch(setStatus(status));
-                }
-
-            })
+export const updateStatus = (status) => async (dispatch) => {
+    let data = await profileAPI.updateStatus(status)
+    if (data.resultCode === 0) {
+        dispatch(setStatus(status));
     }
 }
-
 
 export default profileReducer;

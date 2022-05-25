@@ -6,20 +6,20 @@ import {Navigate} from "react-router-dom";
 import classes from "./Login.module.css";
 
 
-const Login = (props) => {
+const Login = ({isAuth, id, photos, loginThunk}) => {
 
-    if(props.isAuth) {
-        return <Navigate replace to={`/profile/about/${props.id}`} />
+    if(isAuth) {
+        return <Navigate replace to={`/profile/about/${id}`} />
     }
 
     return (
         <div className={classes.main}>
             <div className={classes.loginForm}>
                 <h1>Sign in</h1>
-                <LoginForm {...props}/>
+                <LoginForm loginThunk={loginThunk}/>
             </div>
             <div className={classes.loginImg}>
-                <img src={props.photos[6].bg} alt=""/>
+                <img src={photos[6].bg} alt=""/>
             </div>
 
         </div>

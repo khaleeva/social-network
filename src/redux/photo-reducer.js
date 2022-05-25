@@ -1,4 +1,4 @@
-const ADD_PHOTO = 'ADD-PHOTO'
+const ADD_PHOTO = 'social-network/photosReducer/ADD-PHOTO'
 
 let initialState = {
 photos: [

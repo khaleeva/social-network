@@ -8,7 +8,7 @@ import MyCustomButton from "../../MUI/MyCustomButton";
 import Stack from "@mui/material/Stack";
 
 
-const LoginForm = (props) => {
+const LoginForm = ({loginThunk}) => {
 
 
     const formik = useFormik({
@@ -25,7 +25,7 @@ const LoginForm = (props) => {
 
 
         onSubmit: values => {
-            props.loginThunk(formik.values.email, formik.values.password,
+            loginThunk(formik.values.email, formik.values.password,
                 formik.values.rememberMe, formik.setStatus, formik.setSubmitting)
             formik.setSubmitting(true)
 

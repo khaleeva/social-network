@@ -3,14 +3,14 @@ import StatusForm from "../../Forms/StatusForm";
 import classes from "./ProfileInfo.module.css";
 
 
-const ProfileStatus = (props) => {
+const ProfileStatus = ({status, updateStatus}) => {
 
     const [editMode, setEditMode] = useState(false);
-    const [status, setStatus] = useState(props.status);
+    const [newStatus, setNewStatus] = useState(status);
 
-    useEffect( () => {
-        setStatus(props.status);
-    }, [props.status] );
+    useEffect(() => {
+        setNewStatus(status);
+    }, [status]);
 
     const activateEditMode = () => {
         setEditMode(true)
@@ -18,11 +18,11 @@ const ProfileStatus = (props) => {
 
     const deactivateEditMode = () => {
         setEditMode(false);
-        props.updateStatus(status)
+        updateStatus(newStatus)
     }
 
     const onStatusChange = (e) => {
-        setStatus(e.currentTarget.value)
+        setNewStatus(e.currentTarget.value)
     }
 
     return (
@@ -34,11 +34,11 @@ const ProfileStatus = (props) => {
                     autoFocus={true}
                     onBlur={deactivateEditMode}
                     onChange={onStatusChange}
-                    value={ status }
+                    value={newStatus}
 
                 />
 
-            : <div onDoubleClick={activateEditMode} className={classes.statusColor}> {props.status || "no status"} </div>}
+                : <div onDoubleClick={activateEditMode} className={classes.statusColor}> {status || "no status"} </div>}
 
         </>
     );
