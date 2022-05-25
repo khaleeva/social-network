@@ -7,6 +7,8 @@ import Post from "./Post";
 
 const MyPosts = ({posts, addPost}) => {
 
+    console.log("RENDER YO");
+
     return (
         <div className={classes.posts}>
             <PostForm addPost={addPost}/>

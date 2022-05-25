@@ -11,9 +11,9 @@ const MenuTabs = (props) => {
         <>
             <div className={classes.menuTabs}>
                 <NavLink to={`about/${props.profile.userId}`} className={setActive} >About</NavLink>
-                <NavLink to={"posts"} className={setActive}>TimeLine</NavLink>
-                <NavLink to={"friends"} className={setActive}>Friends</NavLink>
-                <NavLink to={"photos"} className={setActive}>Photos</NavLink>
+                <NavLink to={`posts/${props.profile.userId}`} className={setActive}>TimeLine</NavLink>
+                <NavLink to={`friends/${props.profile.userId}`} className={setActive}>Friends</NavLink>
+                <NavLink to={`photos/${props.profile.userId}`} className={setActive}>Photos</NavLink>
             </div>
             <div className={classes.mainContainer}>
                 <Outlet />

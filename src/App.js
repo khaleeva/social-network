@@ -53,9 +53,9 @@ const App = (props) => {
                         <Route index element={<AboutContainer/>}/>
                         <Route path="about" element={<AboutContainer/>}/>
                         <Route path="about/:userId" element={<AboutContainer/>}/>
-                        <Route path="posts" element={<MyPostsContainer />}/>
-                        <Route path="friends" element={<FriendsContainer />}/>
-                        <Route path="photos" element={<PhotoContainer/>}/>
+                        <Route path="posts/:userId" element={<MyPostsContainer />}/>
+                        <Route path="friends/:userId" element={<FriendsContainer />}/>
+                        <Route path="photos/:userId" element={<PhotoContainer/>}/>
                     </Route>
                     <Route path="users" element={<UsersContainer />}/>
                     <Route path="dialogs/*" element={<DialogsContainer />}/>
