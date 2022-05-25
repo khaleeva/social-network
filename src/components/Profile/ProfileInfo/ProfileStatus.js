@@ -8,6 +8,8 @@ const ProfileStatus = ({status, updateStatus}) => {
     const [editMode, setEditMode] = useState(false);
     const [newStatus, setNewStatus] = useState(status);
 
+
+
     useEffect(() => {
         setNewStatus(status);
     }, [status]);
