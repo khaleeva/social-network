@@ -72,6 +72,10 @@
   background: rgba(80,181,255,.2);
 }
 
+.MuiButtonBase-root{
+  color: #50b5ff !important;
+}
+
 /*.MuiSvgIcon-root{*/
 /*  color: #50b5ff;*/
 /*  cursor:pointer;*/

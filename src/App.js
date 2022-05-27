@@ -1,7 +1,7 @@
 import './App.css';
 import HeaderContainer from "./components/Header/HeaderContainer";
 // import Navbar from "./components/Navbar/Navbar";
-import {Route, Routes} from "react-router-dom";
+import { HashRouter, Route, Routes} from "react-router-dom";
 import React, {useEffect} from "react";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
@@ -19,12 +19,15 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 import NavBarContainer from "./components/Navbar/NavBarContainer";
 import AboutContainer from "./components/About/AboutContainer";
 import Login from "./components/Login/Login"
-import {connect} from "react-redux";
+import {connect, Provider} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./MUI/Preloader";
+import store from './redux/redux-store';
+
 
 
 const App = ({initializeApp, initialized}) => {
+
 
     useEffect(() => {
         initializeApp();
@@ -41,7 +44,7 @@ const App = ({initializeApp, initialized}) => {
             <div className="app-wrapper-content">
                 <Routes>
                     <Route path='/' element={<Login/>}/>
-                    <Route path="/profile/*" element={<ProfileContainer/>}>
+                    <Route path="profile/*" element={<ProfileContainer/>}>
                         <Route index element={<AboutContainer/>}/>
                         <Route path="about" element={<AboutContainer/>}/>
                         <Route path="about/:userId" element={<AboutContainer/>}/>
@@ -60,8 +63,12 @@ const App = ({initializeApp, initialized}) => {
                 </Routes>
             </div>
             <Footer/>
+
+
         </div>
     )
+
+
 }
 
 let mapStateToProps = (state) => (
@@ -76,6 +83,18 @@ let mapStateToProps = (state) => (
 
 
 
-export default connect(mapStateToProps, {initializeApp})(App);
+const AppContainer =  connect(mapStateToProps, {initializeApp})(App);
 
+const MainAppContainer = () => {
 
+    return <React.StrictMode>
+        <HashRouter>
+            <Provider store={store}>
+                <AppContainer/>
+            </Provider>
+        </HashRouter>
+    </React.StrictMode>
+
+}
+
+export default MainAppContainer;

@@ -9,7 +9,8 @@ import MenuTabs from "../MenuTabs/MenuTabs";
 
 
 
-const Profile = ({profile}) => {
+
+const Profile = ({profile, id}) => {
 
     if(!profile){
         return (
@@ -22,7 +23,8 @@ const Profile = ({profile}) => {
     return (
 
             <main className={classes.main}>
-                <ProfileInfo profile={profile} />
+                <ProfileInfo profile={profile}
+                id={id}/>
                 <MenuTabs profile={profile} />
             </main>
     );

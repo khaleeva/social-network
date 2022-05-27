@@ -9,7 +9,8 @@ import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 
 
-const ProfileContainer = ({profile, profileThunkCreator}) => {
+
+const ProfileContainer = ({profile, profileThunkCreator,id}) => {
 
     const {userId} = useParams();
     useEffect(() => {
@@ -18,13 +19,17 @@ const ProfileContainer = ({profile, profileThunkCreator}) => {
 
 
         return (
-          <Profile  profile={profile}/>
+          <Profile  profile={profile}
+                    id={id}
+
+          />
         )
 }
 
 let mapStateToProps = (state) => (
     {
        profile: state.profilePage.profile,
+        id: state.auth.id
     }
 )
 
