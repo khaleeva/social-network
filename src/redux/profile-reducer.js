@@ -3,7 +3,8 @@ import {profileAPI} from "../API/API";
 const ADD_POST = 'social-network/profileReducer/ADD-POST';
 const SET_USER_PROFILE = 'social-network/profileReducer/SET-USER-PROFILE';
 const SET_STATUS = 'social-network/profileReducer/SET_STATUS';
-const DELETE_POST = 'social-network/profileReducer/DELETE_POST'
+const DELETE_POST = 'social-network/profileReducer/DELETE_POST';
+const SAVE_PHOTO_SUCCESS = 'social-network/profileReducer/SAVE_PHOTO_SUCCESS'
 
 
 let initialState = {
@@ -50,6 +51,11 @@ const profileReducer = (state = initialState, action) => {
                 ...state, posts: state.posts.filter(post => post.id !== action.postId)
             }
 
+        case SAVE_PHOTO_SUCCESS:
+            return {
+                ...state, profile:{...state.profile, photos:action.file}
+            }
+
         default :
             return state;
     }
@@ -86,6 +92,13 @@ export const setStatus = (status) => {
     }
 }
 
+export const savePhotoSuccess = (file) => {
+    return {
+        type: SAVE_PHOTO_SUCCESS,
+        file
+    }
+}
+
 //thunk
 
 export const profileThunkCreator = (userId) => async (dispatch) => {
@@ -103,6 +116,13 @@ export const updateStatus = (status) => async (dispatch) => {
     let data = await profileAPI.updateStatus(status)
     if (data.resultCode === 0) {
         dispatch(setStatus(status));
+    }
+}
+
+export const savePhoto = (file) => async (dispatch) => {
+    let data = await profileAPI.savePhoto(file)
+    if (data.resultCode === 0) {
+        dispatch(savePhotoSuccess(file));
     }
 }
 

@@ -12,6 +12,7 @@ import Tooltip from '@mui/material/Tooltip';
 // import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import {NavLink} from "react-router-dom";
+import Preloader from "./Preloader";
 
 
 export default function AccountMenu(props) {
@@ -24,9 +25,7 @@ export default function AccountMenu(props) {
         setAnchorEl(null);
     };
 
-
-
-
+ if(props.profile) {
     return (
         <React.Fragment>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -40,9 +39,10 @@ export default function AccountMenu(props) {
                         aria-expanded={open ? 'true' : undefined}
                     >
                         <Avatar
-                            src={"http://zvezdi.ru/uploads/posts/2016-06/1465216095_foks1.jpg"}
+                            src={props.profile.photos.large}
                             sx={{width: 50, height: 50, border: "1px solid #8c91b6"}}
                         />
+
                     </IconButton>
                 </Tooltip>
             </Box>
@@ -86,18 +86,6 @@ export default function AccountMenu(props) {
                     <NavLink to={`/profile/about/${props.id}`}>{props.login}</NavLink>
                 </MenuItem>
                 <Divider />
-                {/*<MenuItem>*/}
-                {/*    <ListItemIcon>*/}
-                {/*        <PersonAdd fontSize="small" />*/}
-                {/*    </ListItemIcon>*/}
-                {/*    Add another account*/}
-                {/*</MenuItem>*/}
-                {/*<MenuItem>*/}
-                {/*    <ListItemIcon>*/}
-                {/*        <Settings fontSize="small" />*/}
-                {/*    </ListItemIcon>*/}
-                {/*    Settings*/}
-                {/*</MenuItem>*/}
                 <MenuItem onClick={props.logout}>
                     <ListItemIcon>
                         <Logout fontSize="small"/>
@@ -107,4 +95,6 @@ export default function AccountMenu(props) {
             </Menu>
         </React.Fragment>
     );
+} else return <Preloader/>
+
 }

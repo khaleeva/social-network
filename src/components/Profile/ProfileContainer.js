@@ -2,7 +2,7 @@
 import React, {useEffect} from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {profileThunkCreator, setUserProfile} from "../../redux/profile-reducer";
+import {profileThunkCreator, savePhoto, setUserProfile} from "../../redux/profile-reducer";
 import {useParams} from "react-router-dom";
 import {compose} from "redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
@@ -10,7 +10,7 @@ import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 
 
-const ProfileContainer = ({profile, profileThunkCreator,id}) => {
+const ProfileContainer = ({profile, profileThunkCreator,id, savePhoto}) => {
 
     const {userId} = useParams();
     useEffect(() => {
@@ -21,6 +21,7 @@ const ProfileContainer = ({profile, profileThunkCreator,id}) => {
         return (
           <Profile  profile={profile}
                     id={id}
+                    savePhoto={savePhoto}
 
           />
         )
@@ -35,7 +36,7 @@ let mapStateToProps = (state) => (
 
 export default compose(
     connect(mapStateToProps,
-        {setUserProfile, profileThunkCreator}),
+        {setUserProfile, profileThunkCreator, savePhoto}),
     withAuthRedirect
 )(ProfileContainer);
 
