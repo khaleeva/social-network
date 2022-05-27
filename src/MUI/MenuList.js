@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import Logout from '@mui/icons-material/Logout';
 import {NavLink} from "react-router-dom";
 import Preloader from "./Preloader";
+import UploadBtn from "./UploadBtn";
 
 
 export default function AccountMenu(props) {
@@ -82,8 +83,12 @@ export default function AccountMenu(props) {
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
                 <MenuItem>
-                    <NavLink to={`/profile/about/${props.id}`} ><Avatar/></NavLink>
+                    <NavLink to={`/profile/about/${props.id}`} ><Avatar src={props.profile.photos.large}/></NavLink>
                     <NavLink to={`/profile/about/${props.id}`}>{props.login}</NavLink>
+                </MenuItem>
+                <MenuItem>
+                    <UploadBtn/>
+                    Add Avatar
                 </MenuItem>
                 <Divider />
                 <MenuItem onClick={props.logout}>
