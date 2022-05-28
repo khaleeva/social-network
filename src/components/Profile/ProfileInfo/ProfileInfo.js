@@ -4,13 +4,13 @@ import Avatar from "@mui/material/Avatar";
 import UploadBtn from "../../../MUI/UploadBtn";
 
 
-const ProfileInfo = ({profile, id, savePhoto}) => {
+const ProfileInfo = ({profile, id, savePhoto, posts}) => {
 
     const profileInfo = [
         {
             id: 1,
             title: "Posts",
-            count: 90,
+            count: posts.length
         },
         {
             id: 2,
@@ -34,8 +34,7 @@ const ProfileInfo = ({profile, id, savePhoto}) => {
             return `https://${url}`
         } else return url
     }
-
-
+    
     return  (
         <div className={classes.imgContainer}>
             <div className={classes.background}></div>

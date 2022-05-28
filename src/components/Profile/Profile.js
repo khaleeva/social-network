@@ -10,7 +10,8 @@ import MenuTabs from "../MenuTabs/MenuTabs";
 
 
 
-const Profile = ({profile, id, savePhoto}) => {
+const Profile = ({profile, id, savePhoto, posts}) => {
+
 
     if(!profile){
         return (
@@ -25,7 +26,10 @@ const Profile = ({profile, id, savePhoto}) => {
         <main className={classes.main}>
             <ProfileInfo profile={profile}
                          id={id}
-                         savePhoto={savePhoto}/>
+                         savePhoto={savePhoto}
+                         posts={posts}
+
+            />
             <MenuTabs profile={profile}/>
         </main>
     );
