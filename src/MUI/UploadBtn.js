@@ -8,7 +8,11 @@ const Input = styled('input')({
     display: 'none',
 });
 
-export default function UploadBtn(props) {
+const Span = styled('span')({
+    marginLeft: '0.5rem'
+})
+
+const UploadBtn = (props) => {
 
 
     const onPhotoSelected = (e) => {
@@ -18,13 +22,19 @@ export default function UploadBtn(props) {
     }
 
     return (
-        <Stack direction="row" alignItems="center" spacing={2}>
+
+        <Stack direction="row" alignItems="center" spacing={2} >
             <label htmlFor="icon-button-file">
                 <Input  accept="image/*" id="icon-button-file" type="file" onChange={onPhotoSelected}/>
-                <IconButton color="primary" aria-label="upload picture" component="span">
+                <IconButton color="primary" aria-label="upload picture" component="span" sx={props.sx}>
                     <PhotoCamera />
+                    <Span >{props.text}</Span>
                 </IconButton>
             </label>
         </Stack>
+
+
     );
 }
+
+export default UploadBtn;

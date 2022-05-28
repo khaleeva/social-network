@@ -4,9 +4,8 @@ import {connect} from "react-redux";
 import {logoutThunk} from "../../redux/auth-reducer";
 
 
+
 const HeaderContainer = (props) => {
-
-
 
     return (
         <Header {...props}/>

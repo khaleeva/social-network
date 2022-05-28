@@ -8,6 +8,7 @@ import MenuList from "../../MUI/MenuList";
 const Header = (props) => {
 
 
+
     return (
         <header className={classes.header}>
             <div className={classes.logo}>
@@ -18,7 +19,12 @@ const Header = (props) => {
             <div className={classes.loginBlock}>
                 { props.isAuth ?
                     <div className={classes.user}>
-                        <MenuList login={props.login} id={props.id} isAuth={props.isAuth} logout={props.logoutThunk} profile={props.profile}/>
+                        <MenuList login={props.login}
+                                  id={props.id}
+                                  isAuth={props.isAuth}
+                                  logout={props.logoutThunk}
+                                  profile={props.profile}
+                        />
                     </div>
                     : <NavLink to={'/login'}>Sign in</NavLink>
 
