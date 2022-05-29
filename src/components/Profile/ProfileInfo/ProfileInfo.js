@@ -37,7 +37,12 @@ const ProfileInfo = ({profile, id, savePhoto, posts}) => {
     
     return  (
         <div className={classes.imgContainer}>
-            <div className={classes.background}></div>
+            <div className={classes.background}>
+                <div className={classes.changeAvatar}>
+                    { id !== profile.userId ? null :
+                    <UploadBtn savePhoto={savePhoto} profile={profile}/>}
+                </div>
+            </div>
             <div className={classes.profileInfo}>
                 <ul className={classes.socialList}>
                     <li><a href={modifyURL(profile.contacts.facebook)} rel="noreferrer" target="_blank"><img
@@ -71,26 +76,17 @@ const ProfileInfo = ({profile, id, savePhoto, posts}) => {
                 </div>
             </div>
             <div className={classes.avatar}>
-                { id !== profile.userId ? <Avatar
+                <Avatar
                     src={profile.photos.large}
                     sx={{width: 120, height: 120}}
-                /> : <>
-                    <Avatar
-                        src={profile.photos.large}
-                        sx={{width: 120, height: 120}}
-                    />
-                    <UploadBtn savePhoto={savePhoto} profile={profile}/>
-                </>}
+                />
                 <p>{profile.fullName}</p>
             </div>
+
+
         </div>
 
     )
-
-
-
-
-
 
 };
 

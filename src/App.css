@@ -72,12 +72,13 @@
   background: rgba(80,181,255,.2);
 }
 
-.MuiButtonBase-root{
+.MuiButtonBase-root {
   color: #50b5ff !important;
-
-
-
 }
+
+/*.MuiIconButton-root{*/
+/*  background-color: rgba(255,255,255, 0.5) !important;*/
+/*}*/
 
 
 .sendButton{

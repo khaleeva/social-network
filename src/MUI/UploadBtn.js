@@ -13,11 +13,6 @@ const Span = styled('span')({
 })
 
 
-export const addNecessaryComponent = (Component) => {
-    return (props) => {
-        return
-    };
-}
 
 const UploadBtn = (props) => {
 
@@ -35,9 +30,8 @@ const UploadBtn = (props) => {
         <>
             <label htmlFor="icon-button-file" >
                 <Input  accept="image/*" id="icon-button-file" type="file" onChange={onPhotoSelected}/>
-                <IconButton color="primary" aria-label="upload picture" component="span">
+                <IconButton aria-label="upload picture" component="span"sx={{backgroundColor: 'rgba(255,255,255, 0.5)'}} >
                     <PhotoCamera />
-
                 </IconButton>
                 <Span sx={{fontSize: '1rem', mr: 1, cursor:'pointnpm er'}}>{props.text}</Span>
             </label>

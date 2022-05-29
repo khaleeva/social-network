@@ -20,6 +20,7 @@
     background-size: cover;
     background-position: center;
     border-radius: 10px;
+    position: relative;
 }
 
 .avatar{
@@ -32,6 +33,13 @@
     transform: translate(-50%, -90%);
     font-size: 30px;
     cursor: pointer;
+}
+
+.changeAvatar{
+    position: absolute;
+    top:95%;
+    left:100%;
+    transform: translate(-100%, -100%);
 }
 
 .avatar p{
