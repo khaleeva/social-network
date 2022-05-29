@@ -87,7 +87,7 @@ export default function AccountMenu(props) {
 
                     {props.id !== props.profile.userId ? null :
                         <MenuItem>
-                            <UploadBtn text={"Add Avatar"} sx={{fontSize: '1rem', mr: 1}}/>
+                            <UploadBtn text={"Add Avatar"}/>
                         </MenuItem>
                     }
                     {props.id !== props.profile.userId ? null :

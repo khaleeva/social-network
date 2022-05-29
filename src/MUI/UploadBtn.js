@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import {PhotoCamera} from "@mui/icons-material";
+import Avatar from "@mui/material/Avatar";
 
 const Input = styled('input')({
     display: 'none',
@@ -11,6 +12,13 @@ const Input = styled('input')({
 const Span = styled('span')({
     marginLeft: '0.5rem'
 })
+
+
+export const addNecessaryComponent = (Component) => {
+    return (props) => {
+        return
+    };
+}
 
 const UploadBtn = (props) => {
 
@@ -21,17 +29,21 @@ const UploadBtn = (props) => {
         }
     }
 
+
+
     return (
 
-        <Stack direction="row" alignItems="center" spacing={2} >
-            <label htmlFor="icon-button-file">
+        <>
+            <label htmlFor="icon-button-file" >
                 <Input  accept="image/*" id="icon-button-file" type="file" onChange={onPhotoSelected}/>
-                <IconButton color="primary" aria-label="upload picture" component="span" sx={props.sx}>
+                <IconButton color="primary" aria-label="upload picture" component="span">
                     <PhotoCamera />
-                    <Span >{props.text}</Span>
+
                 </IconButton>
+                <Span sx={{fontSize: '1rem', mr: 1, cursor:'pointer'}}>{props.text}</Span>
             </label>
-        </Stack>
+
+        </>
 
 
     );

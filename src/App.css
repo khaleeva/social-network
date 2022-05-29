@@ -74,12 +74,11 @@
 
 .MuiButtonBase-root{
   color: #50b5ff !important;
+
+
+
 }
 
-/*.MuiSvgIcon-root{*/
-/*  color: #50b5ff;*/
-/*  cursor:pointer;*/
-/*}*/
 
 .sendButton{
   margin-top: 1rem;
