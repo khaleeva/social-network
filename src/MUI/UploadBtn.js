@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
-import Stack from '@mui/material/Stack';
 import {PhotoCamera} from "@mui/icons-material";
-import Avatar from "@mui/material/Avatar";
+
 
 const Input = styled('input')({
     display: 'none',
@@ -40,7 +39,7 @@ const UploadBtn = (props) => {
                     <PhotoCamera />
 
                 </IconButton>
-                <Span sx={{fontSize: '1rem', mr: 1, cursor:'pointer'}}>{props.text}</Span>
+                <Span sx={{fontSize: '1rem', mr: 1, cursor:'pointnpm er'}}>{props.text}</Span>
             </label>
 
         </>
