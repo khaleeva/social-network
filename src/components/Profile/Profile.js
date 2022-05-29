@@ -10,7 +10,7 @@ import MenuTabs from "../MenuTabs/MenuTabs";
 
 
 
-const Profile = ({profile, id, savePhoto, posts}) => {
+const Profile = ({profile, id, savePhoto, posts, status, updateStatus}) => {
 
 
     if(!profile){
@@ -28,6 +28,8 @@ const Profile = ({profile, id, savePhoto, posts}) => {
                          id={id}
                          savePhoto={savePhoto}
                          posts={posts}
+                         status={status}
+                         updateStatus={updateStatus}
 
             />
             <MenuTabs profile={profile}/>

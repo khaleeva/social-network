@@ -15,7 +15,7 @@ const Navbar = (props) => {
 
     return (
         <nav className={classes.nav}>
-            <NavLink to={`/profile/about/${props.id}`} className={setActive}><PersonOutlineIcon/></NavLink>
+            <NavLink to={`/profile/posts/${props.id}`} className={setActive}><PersonOutlineIcon/></NavLink>
             <NavLink to={'/users'} className={setActive}><PeopleOutlineIcon/></NavLink>
             <NavLink to={'/dialogs'} className={setActive}><MailOutlineIcon/></NavLink>
             <NavLink to={'/news'} className={setActive}><NewspaperIcon/></NavLink>

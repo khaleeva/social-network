@@ -41,7 +41,7 @@ const UserItem = ({key, id, src, followed, disabled, unfollow, follow, name, sta
                                           }}
                         >Following</MyCustomButton>}
                     <div className={classes.usersInfo}>
-                        <NavLink to={`/profile/about/${id}`}>
+                        <NavLink to={`/profile/posts/${id}`}>
                             <div className={classes.usersName}>{name}</div>
                         </NavLink>
                         <div>{status}</div>

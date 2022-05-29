@@ -53,14 +53,23 @@
 }
 
 
+/*.socialList{*/
+/*    width: 30%;*/
+/*    margin-top: 2rem;*/
+/*    padding-left: 1rem;*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    list-style-type: none;*/
+/*}*/
 
-.socialList{
+.status{
     width: 30%;
     margin-top: 2rem;
     padding-left: 1rem;
     display: flex;
-    justify-content: space-between;
-    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1rem;
 }
 
 .socialList li a img{

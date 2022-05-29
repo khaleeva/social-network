@@ -1,13 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import StatusForm from "../../Forms/StatusForm";
 import classes from "./ProfileInfo.module.css";
+import EditBtn from "../../../MUI/EditBtn";
 
 
-const ProfileStatus = ({status, updateStatus}) => {
+
+const ProfileStatus = ({status, updateStatus, profile, id}) => {
+
+
 
     const [editMode, setEditMode] = useState(false);
     const [newStatus, setNewStatus] = useState(status);
-
 
 
     useEffect(() => {
@@ -27,22 +30,25 @@ const ProfileStatus = ({status, updateStatus}) => {
         setNewStatus(e.currentTarget.value)
     }
 
+
+
+
+
     return (
-        <>
-            {editMode ?
 
-                <StatusForm
-                    type={'text'}
-                    autoFocus={true}
-                    onBlur={deactivateEditMode}
-                    onChange={onStatusChange}
-                    value={newStatus}
+            <div className={classes.status}>
+                {editMode ?
+                    <StatusForm
+                        type={'text'}
+                        autoFocus={true}
+                        onBlur={deactivateEditMode}
+                        onChange={onStatusChange}
+                        value={newStatus}
 
-                />
+                    /> : <div className={classes.statusColor}> {status || "no status"} </div>}
+                    {profile.userId !== id ? null : <EditBtn activeEditMode={activateEditMode}/>}
+            </div>
 
-                : <div onDoubleClick={activateEditMode} className={classes.statusColor}> {status || "no status"} </div>}
-
-        </>
     );
 };
 

@@ -45,10 +45,10 @@ const App = ({initializeApp, initialized}) => {
                 <Routes>
                     <Route path='/' element={<Login/>}/>
                     <Route path="profile/*" element={<ProfileContainer/>}>
-                        <Route index element={<AboutContainer/>}/>
-                        <Route path="about" element={<AboutContainer/>}/>
-                        <Route path="about/:userId" element={<AboutContainer/>}/>
+                        <Route index element={<MyPostsContainer/>}/>
+                        <Route path="posts" element={<MyPostsContainer/>}/>
                         <Route path="posts/:userId" element={<MyPostsContainer />}/>
+                        <Route path="about/:userId" element={<AboutContainer/>}/>
                         <Route path="friends/:userId" element={<FriendsContainer />}/>
                         <Route path="photos/:userId" element={<PhotoContainer/>}/>
                     </Route>

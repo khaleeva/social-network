@@ -9,7 +9,7 @@ import classes from "./Login.module.css";
 const Login = ({isAuth, id, photos, loginThunk}) => {
 
     if(isAuth) {
-        return <Navigate replace to={`/profile/about/${id}`} />
+        return <Navigate replace to={`/profile/posts/${id}`} />
     }
 
     return (
