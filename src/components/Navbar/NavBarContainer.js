@@ -3,16 +3,23 @@ import {connect} from "react-redux";
 import Navbar from "./Navbar";
 
 
-let mapStateToProps = (state) => {
-    return {
+const NavBarContainer = ({id, profile}) =>{
+    return <Navbar id={id} profile={profile} />
 
-        id: state.auth.id
-    }
+
 }
 
+let mapStateToProps = (state) => (
+    {
+        profile: state.profilePage.profile,
+        id: state.auth.id,
+    }
+)
 
 
 
-const NavBarContainer = connect(mapStateToProps)(Navbar);
 
-export default NavBarContainer;
+
+
+export default connect(mapStateToProps)(NavBarContainer);
+

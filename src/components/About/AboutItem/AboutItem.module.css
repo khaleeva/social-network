@@ -6,3 +6,7 @@
     justify-content: space-between;
 }
 
+.dataForm{
+    display: flex;
+    flex-direction: column;
+}

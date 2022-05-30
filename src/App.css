@@ -76,9 +76,19 @@
   color: #50b5ff !important;
 }
 
-/*.MuiIconButton-root{*/
-/*  background-color: rgba(255,255,255, 0.5) !important;*/
-/*}*/
+
+.MuiInput-root{
+  color: #50b5ff!important;
+  font-size: 1rem;
+}
+
+.MuiInput-root:before{
+  border-bottom: 1px solid #8c91b6 !important;
+}
+
+.MuiInput-root:after{
+  border-bottom: 1px solid #50b5ff !important;
+}
 
 
 .sendButton{

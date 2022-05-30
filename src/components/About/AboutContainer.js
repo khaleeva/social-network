@@ -3,11 +3,7 @@ import {connect} from "react-redux";
 import About from "./About";
 
 
-
-
 const AboutContainer = ({profile}) =>{
-
-
 
     return (
         <About profile={profile}/>

@@ -14,14 +14,12 @@ export default function StatusForm(props) {
         >
             <TextField
                 id="standard-basic"
-                // label="Change your status"
                 variant="standard"
                 type={props.type}
                 autoFocus={props.autoFocus}
                 onBlur={props.onBlur}
                 onChange={props.onChange}
                 value={ props.value }
-
             />
         </Box>
     );
