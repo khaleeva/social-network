@@ -3,6 +3,7 @@ import classes from './ProfileInfo.module.css'
 import Avatar from "@mui/material/Avatar";
 import UploadBtn from "../../../MUI/UploadBtn";
 import ProfileStatus from "./ProfileStatus";
+import BasicModal from "../../../MUI/BasicModal";
 
 
 
@@ -40,9 +41,13 @@ const ProfileInfo = ({profile, id, savePhoto, posts, status, updateStatus}) => {
     return  (
         <div className={classes.imgContainer}>
             <div className={classes.background}>
-                <div className={classes.changeAvatar}>
+                <div className={classes.changeProfile}>
                     { id !== profile.userId ? null :
-                    <UploadBtn savePhoto={savePhoto} profile={profile}/>}
+                        <div className={classes.profileBtns}>
+                            <UploadBtn savePhoto={savePhoto} profile={profile}/>
+                            <BasicModal/>
+                        </div>
+                    }
                 </div>
             </div>
             <div className={classes.profileInfo}>

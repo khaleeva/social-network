@@ -35,11 +35,16 @@
     cursor: pointer;
 }
 
-.changeAvatar{
+.changeProfile{
     position: absolute;
     top:95%;
     left:100%;
     transform: translate(-100%, -100%);
+}
+
+.profileBtns{
+    display: flex;
+    padding-right: 1rem;
 }
 
 .avatar p{

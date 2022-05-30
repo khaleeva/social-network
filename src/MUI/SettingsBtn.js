@@ -1,12 +1,11 @@
 import * as React from 'react';
 import IconButton from '@mui/material/IconButton';
-import {Edit} from "@mui/icons-material";
+import {Settings} from "@mui/icons-material";
 
 
 
 
-
-const EditBtn = (props) => {
+const SettingsBtn = (props) => {
 
 
     return (
@@ -15,13 +14,15 @@ const EditBtn = (props) => {
         <IconButton
             aria-label="upload picture"
             component="span"
-            onClick={props.activeEditMode}
+            sx={{backgroundColor: 'rgba(255,255,255, 0.5)'}}
+            onClick={props.handleOpen}
+
         >
-            <Edit/>
+            <Settings/>
         </IconButton>
 
 
     );
 }
 
-export default EditBtn;
+export default SettingsBtn;
