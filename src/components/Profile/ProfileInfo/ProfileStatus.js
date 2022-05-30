@@ -46,7 +46,7 @@ const ProfileStatus = ({status, updateStatus, profile, id}) => {
                         value={newStatus}
 
                     /> : <div className={classes.statusColor}> {status || "no status"} </div>}
-                    {profile.userId !== id ? null : <EditBtn activeEditMode={activateEditMode}/>}
+                    {profile.userId !== id ? null : <EditBtn onClick={activateEditMode}/>}
             </div>
 
     );

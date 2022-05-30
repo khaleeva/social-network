@@ -8,14 +8,11 @@ import {Edit} from "@mui/icons-material";
 
 const EditBtn = (props) => {
 
-
     return (
-
-
         <IconButton
             aria-label="upload picture"
             component="span"
-            onClick={props.activeEditMode}
+            onClick={props.onClick}
         >
             <Edit/>
         </IconButton>

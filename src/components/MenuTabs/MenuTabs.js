@@ -11,7 +11,7 @@ const MenuTabs = ({profile}) => {
         <>
             <div className={classes.menuTabs}>
                 <NavLink to={`posts/${profile.userId}`} className={setActive}>TimeLine</NavLink>
-                <NavLink to={`about/${profile.userId}`} className={setActive} >About</NavLink>
+                <NavLink to={`about/contact/${profile.userId}`} className={setActive} >About</NavLink>
                 <NavLink to={`friends/${profile.userId}`} className={setActive}>Friends</NavLink>
                 <NavLink to={`photos/${profile.userId}`} className={setActive}>Photos</NavLink>
             </div>

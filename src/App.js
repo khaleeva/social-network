@@ -23,6 +23,10 @@ import {connect, Provider} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./MUI/Preloader";
 import store from './redux/redux-store';
+import Relation from "./components/About/AboutItem/Relation";
+import AboutDetails from "./components/About/AboutItem/AboutDetails";
+import Work from "./components/About/AboutItem/Work";
+import ContactContainer from "./components/About/AboutItem/ContactContainer";
 
 
 
@@ -48,7 +52,13 @@ const App = ({initializeApp, initialized}) => {
                         <Route index element={<MyPostsContainer/>}/>
                         <Route path="posts" element={<MyPostsContainer/>}/>
                         <Route path="posts/:userId" element={<MyPostsContainer />}/>
-                        <Route path="about/:userId" element={<AboutContainer/>}/>
+                        <Route path="about" element={<AboutContainer/>}/>
+                        <Route path="about/*" element={<AboutContainer/>}>
+                            <Route path="contact/:userId" element={<ContactContainer />}/>
+                            <Route path="relation/:userId" element={<Relation />}/>
+                            <Route path="work/:userId" element={<Work/>}/>
+                            <Route path="details/:userId" element={<AboutDetails />}/>
+                        </Route>
                         <Route path="friends/:userId" element={<FriendsContainer />}/>
                         <Route path="photos/:userId" element={<PhotoContainer/>}/>
                     </Route>

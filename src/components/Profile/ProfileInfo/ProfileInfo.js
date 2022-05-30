@@ -29,14 +29,7 @@ const ProfileInfo = ({profile, id, savePhoto, posts, status, updateStatus}) => {
     ]
 
 
-    // let modifyURL = (url) => {
-    //     if (url === null) {
-    //         return null
-    //     }
-    //     if (url.indexOf("https://") === -1) {
-    //         return `https://${url}`
-    //     } else return url
-    // }
+
     
     return  (
         <div className={classes.imgContainer}>
@@ -58,26 +51,7 @@ const ProfileInfo = ({profile, id, savePhoto, posts, status, updateStatus}) => {
                                id={id}
                 />
 
-                {/*<ul className={classes.socialList}>*/}
-                {/*    <li><a href={modifyURL(profile.contacts.facebook)} rel="noreferrer" target="_blank"><img*/}
-                {/*        src="https://templates.iqonic.design/socialv/bs5/html/dist/assets/images/icon/08.png"*/}
-                {/*        alt="facebook"/></a></li>*/}
-                {/*    <li><a href={modifyURL(profile.contacts.twitter)} rel="noreferrer" target="_blank"><img*/}
-                {/*        src="https://templates.iqonic.design/socialv/bs5/html/dist/assets/images/icon/09.png"*/}
-                {/*        alt="twitter"/></a></li>*/}
-                {/*    <li><a href={modifyURL(profile.contacts.instagram)} rel="noreferrer" target="_blank"><img*/}
-                {/*        src="https://templates.iqonic.design/socialv/bs5/html/dist/assets/images/icon/10.png"*/}
-                {/*        alt="instagram"/></a></li>*/}
-                {/*    <li><a href={modifyURL(profile.contacts.youtube)} rel="noreferrer" target="_blank"><img*/}
-                {/*        src="https://templates.iqonic.design/socialv/bs5/html/dist/assets/images/icon/11.png"*/}
-                {/*        alt=""/></a></li>*/}
-                {/*    <li><a href={modifyURL(profile.contacts.youtube)} rel="noreferrer" target="_blank"><img*/}
-                {/*        src="https://templates.iqonic.design/socialv/bs5/html/dist/assets/images/icon/12.png"*/}
-                {/*        alt=""/></a></li>*/}
-                {/*    <li><a href={modifyURL(profile.contacts.youtube)} rel="noreferrer" target="_blank"><img*/}
-                {/*        src="https://templates.iqonic.design/socialv/bs5/html/dist/assets/images/icon/13.png"*/}
-                {/*        alt=""/></a></li>*/}
-                {/*</ul>*/}
+
                 <div className={classes.info}>
                     {profileInfo.map((info) => {
                         return (

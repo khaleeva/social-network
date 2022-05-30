@@ -1,0 +1,42 @@
+.mainAbout{
+    display:flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2rem;
+
+
+}
+
+.aboutTabs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30%;
+    max-width: 300px;
+    height: 250px;
+
+}
+
+.aboutTabs a{
+    text-decoration: none;
+    color: #50b5ff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 10px;
+    padding-left: 2rem;
+
+}
+
+.mainAboutContainer{
+    width: 60%;
+}
+
+.active{
+    color:#50b5ff !important;
+    background: rgba(80,181,255,.2);
+
+
+}

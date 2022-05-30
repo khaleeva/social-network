@@ -13,9 +13,8 @@ const style = {
     width: 400,
     bgcolor: '#182039',
     color:'#8c91b6',
-    // border: '2px solid #50b5ff',
     borderRadius:'5px',
-    // boxShadow: 24,
+
     p: 4,
 };
 
