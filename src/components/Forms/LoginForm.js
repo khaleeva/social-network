@@ -25,6 +25,8 @@ const LoginForm = ({loginThunk, captchaUrl}) => {
         }),
 
 
+
+
         onSubmit: values => {
             loginThunk(formik.values.email, formik.values.password,
                 formik.values.rememberMe, formik.values.captcha, formik.setStatus, formik.setSubmitting)
@@ -32,6 +34,7 @@ const LoginForm = ({loginThunk, captchaUrl}) => {
 
         },
     });
+
 
 
     return (
@@ -90,7 +93,7 @@ const LoginForm = ({loginThunk, captchaUrl}) => {
 
                 />
                 <FormGroup>
-                    <FormControlLabel control={<Checkbox defaultChecked/>}
+                    <FormControlLabel control={<Checkbox/>}
                                       label="Remember me"
                                       onChange={formik.handleChange}
                                       value={formik.values.rememberMe}
