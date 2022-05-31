@@ -96,7 +96,7 @@
   background: rgba(80,181,255,.2);
   color:#50b5ff;
   border-radius: 5px;
-  width: 100px;
+  max-width: 100px;
   height: 30px;
   border: 1px solid #50b5ff;
   cursor: pointer;
@@ -113,7 +113,7 @@
   background: rgba(80,181,255,.7);
   color:#50b5ff;
   border-radius: 5px;
-  width: 100px;
+  max-width: 100px;
   height: 30px;
   border: 1px solid #50b5ff;
 }
@@ -135,7 +135,7 @@
   margin-top: 1rem;
   color:white;
   border-radius: 5px;
-  width: 100px;
+  max-width: 100px;
   height: 30px;
   border: 1px solid #50b5ff;
   background-color: #50b5ff;

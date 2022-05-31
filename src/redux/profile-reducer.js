@@ -131,7 +131,7 @@ export const savePhoto = (file) => async (dispatch) => {
 }
 
 export const saveData = (profile) => async (dispatch, getState) => {
-    const userId = getState().auth.userId;
+    const userId = getState().auth.id;
     let data = await profileAPI.saveData(profile)
     if (data.resultCode === 0) {
         dispatch(profileThunkCreator(userId));

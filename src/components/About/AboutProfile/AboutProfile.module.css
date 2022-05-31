@@ -1,4 +1,6 @@
-
+.subContact{
+    margin-top: 1rem;
+}
 
 .titleBlock{
     display: flex;
@@ -11,7 +13,13 @@
     flex-direction: column;
 }
 
-ul li {
-    list-style-type: none;
-    padding: 0.3rem;
+.subContactItem {
+    display: flex;
+    padding: 0.3rem 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.subContactItem div {
+    width: 50%;
 }

@@ -55,12 +55,19 @@ const UserData = ({profile, id, activateEditMode}) => {
                 {id === profile.userId ? <EditBtn onClick={activateEditMode}/> : null}
             </div>
                 <Divider sx={{borderColor: '#8c91b6'}}/>
-            <div className="subContact">
-                <ul>
-                    <li><span>Name</span>: <span>{profile.fullName}</span></li>
-                    <li><span>Looking for a Job</span>: <span>{profile.lookingForAJob}</span></li>
-                    <li><span>My professional skills</span>: <span>{profile.lookingForAJobDescription}</span></li>
-                </ul>
+            <div className={classes.subContact}>
+                <div className={classes.subContactItem}>
+                    <div>Name</div>
+                    <div>{profile.fullName}</div>
+                </div>
+                <div className={classes.subContactItem}>
+                    <div>Looking for a Job</div>
+                    <div>{profile.lookingForAJob ? 'yes' : 'no'}</div>
+                </div>
+                <div className={classes.subContactItem}>
+                    <div>My professional skills</div>
+                    <div>{profile.lookingForAJobDescription}</div>
+                </div>
             </div>
         </div>
     )
@@ -72,13 +79,11 @@ const SocialData = ({profile}) => {
                 <div className="contactInfoItem">
                     <h3>Websites and Social Links</h3>
                     <Divider sx={{borderColor: '#8c91b6'}}/>
-                    <div className="subContact">
-                        <ul>
+                    <div className={classes.subContact}>
                             {Object.keys(profile.contacts).map(key => {
                                 return <SocialContact key={key} contactTitle={key}
                                                       contactValue={profile.contacts[key]}/>
                             })}
-                        </ul>
                     </div>
                 </div>
 
@@ -89,13 +94,11 @@ const PersonalData = ({profile}) => {
                 <div className="contactInfoItem">
                     <h3>Basic Information</h3>
                     <Divider sx={{borderColor: '#8c91b6'}}/>
-                    <div className="subContact">
-                        <ul>
-                            <li><span>About me</span>: <span>{profile.aboutMe}</span></li>
-                            {/*<li>Gender :</li>*/}
-                            {/*<li>Interested in :</li>*/}
-                            {/*<li>Language:</li>*/}
-                        </ul>
+                    <div className={classes.subContact}>
+                        <div className={classes.subContactItem}>
+                            <div>About me</div>
+                            <div>{profile.aboutMe}</div>
+                        </div>
                     </div>
                 </div>
     )
@@ -113,7 +116,7 @@ const SocialContact = ({contactTitle, contactValue}) => {
     }
 
     const value = modifyURL(contactValue)
-    return <li><span style={{color :'#50b5ff'}}>{contactTitle}:</span> {value} </li>
+    return <div className={classes.subContactItem}><div>{contactTitle}</div> <div>{value}</div> </div>
 }
 
 export default AboutContact;
