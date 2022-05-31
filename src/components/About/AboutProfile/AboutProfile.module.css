@@ -10,3 +10,8 @@
     display: flex;
     flex-direction: column;
 }
+
+ul li {
+    list-style-type: none;
+    padding: 0.3rem;
+}

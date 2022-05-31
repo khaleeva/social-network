@@ -56,6 +56,7 @@ const profileReducer = (state = initialState, action) => {
                 ...state, profile:{...state.profile, photos:action.file}
             }
 
+
         default :
             return state;
     }
@@ -99,6 +100,9 @@ export const savePhotoSuccess = (file) => {
     }
 }
 
+
+
+
 //thunk
 
 export const profileThunkCreator = (userId) => async (dispatch) => {
@@ -123,6 +127,14 @@ export const savePhoto = (file) => async (dispatch) => {
     let data = await profileAPI.savePhoto(file)
     if (data.resultCode === 0) {
         dispatch(savePhotoSuccess(data.data.photos));
+    }
+}
+
+export const saveData = (profile) => async (dispatch, getState) => {
+    const userId = getState().auth.userId;
+    let data = await profileAPI.saveData(profile)
+    if (data.resultCode === 0) {
+        dispatch(profileThunkCreator(userId));
     }
 }
 

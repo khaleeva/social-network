@@ -23,10 +23,10 @@ import {connect, Provider} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./MUI/Preloader";
 import store from './redux/redux-store';
-import Relation from "./components/About/AboutItem/Relation";
-import AboutDetails from "./components/About/AboutItem/AboutDetails";
-import Work from "./components/About/AboutItem/Work";
-import ContactContainer from "./components/About/AboutItem/ContactContainer";
+import Relation from "./components/About/AboutProfile/Relation";
+import AboutDetails from "./components/About/AboutProfile/AboutDetails";
+import Work from "./components/About/AboutProfile/Work";
+import ContactContainer from "./components/About/AboutProfile/ContactContainer";
 
 
 

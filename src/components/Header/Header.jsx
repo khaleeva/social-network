@@ -19,7 +19,8 @@ const Header = (props) => {
             <div className={classes.loginBlock}>
                 { props.isAuth ?
                     <div className={classes.user}>
-                        <MenuList login={props.login}
+                        <MenuList
+                                  login={props.login}
                                   id={props.id}
                                   isAuth={props.isAuth}
                                   logout={props.logoutThunk}
