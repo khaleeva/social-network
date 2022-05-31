@@ -49,6 +49,7 @@ const ProfileInfo = ({profile, id, savePhoto, posts, status, updateStatus}) => {
                                updateStatus={updateStatus}
                                profile={profile}
                                id={id}
+
                 />
 
 

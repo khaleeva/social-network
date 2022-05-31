@@ -30,6 +30,7 @@ const ProfileContainer = ({profile, profileThunkCreator,id, savePhoto, posts, st
                     posts ={posts}
                     status={status}
                     updateStatus={updateStatus}
+
           />
         )
 }
@@ -39,7 +40,9 @@ let mapStateToProps = (state) => (
         profile: state.profilePage.profile,
         id: state.auth.id,
         posts: state.profilePage.posts,
-        status: state.profilePage.status
+        status: state.profilePage.status,
+
+
     }
 )
 

@@ -7,33 +7,31 @@ import MenuTabs from "../MenuTabs/MenuTabs";
 
 
 
-
-
-
 const Profile = ({profile, id, savePhoto, posts, status, updateStatus}) => {
 
 
-    if(!profile){
+    if (!profile) {
         return (
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems:'center', padding:'20px'}}>
-                <CircularProgress />
+            <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px'}}>
+                <CircularProgress/>
             </Box>
         )
     }
 
     return (
 
-        <main className={classes.main}>
-            <ProfileInfo profile={profile}
-                         id={id}
-                         savePhoto={savePhoto}
-                         posts={posts}
-                         status={status}
-                         updateStatus={updateStatus}
+            <main className={classes.main}>
+                <ProfileInfo profile={profile}
+                             id={id}
+                             savePhoto={savePhoto}
+                             posts={posts}
+                             status={status}
+                             updateStatus={updateStatus}
 
-            />
-            <MenuTabs profile={profile}/>
-        </main>
+
+                />
+                <MenuTabs profile={profile}/>
+            </main>
     );
 };
 

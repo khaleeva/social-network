@@ -5,7 +5,7 @@ const SET_USER_PROFILE = 'social-network/profileReducer/SET-USER-PROFILE';
 const SET_STATUS = 'social-network/profileReducer/SET_STATUS';
 const DELETE_POST = 'social-network/profileReducer/DELETE_POST';
 const SAVE_PHOTO_SUCCESS = 'social-network/profileReducer/SAVE_PHOTO_SUCCESS'
-
+const SET_GLOBAL_ERROR = 'social-network/profileReducer/SET_GLOBAL_ERROR'
 
 let initialState = {
     posts: [
@@ -16,7 +16,7 @@ let initialState = {
     ],
     profile: null,
     status: '',
-
+    error: null
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -54,6 +54,11 @@ const profileReducer = (state = initialState, action) => {
         case SAVE_PHOTO_SUCCESS:
             return {
                 ...state, profile:{...state.profile, photos:action.file}
+            }
+
+        case SET_GLOBAL_ERROR:
+            return {
+                ...state,  error:action.error
             }
 
 
@@ -100,6 +105,15 @@ export const savePhotoSuccess = (file) => {
     }
 }
 
+export const setGlobalError = (error) => {
+    return {
+        type: SET_GLOBAL_ERROR,
+        error
+    }
+}
+
+
+
 
 
 
@@ -117,10 +131,16 @@ export const getStatus = (userId) => async (dispatch) => {
 }
 
 export const updateStatus = (status) => async (dispatch) => {
-    let data = await profileAPI.updateStatus(status)
-    if (data.resultCode === 0) {
-        dispatch(setStatus(status));
+    try{
+        let data = await profileAPI.updateStatus(status)
+        if (data.resultCode === 0) {
+            dispatch(setStatus(status));
+        }
+    } catch(error) {
+            dispatch(setGlobalError(error))
+        console.log(error)
     }
+
 }
 
 export const savePhoto = (file) => async (dispatch) => {
