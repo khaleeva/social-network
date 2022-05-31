@@ -6,7 +6,7 @@ import {Navigate} from "react-router-dom";
 import classes from "./Login.module.css";
 
 
-const Login = ({isAuth, id, photos, loginThunk}) => {
+const Login = ({isAuth, id, photos, loginThunk, captchaUrl}) => {
 
     if(isAuth) {
         return <Navigate replace to={`/profile/posts/${id}`} />
@@ -16,7 +16,7 @@ const Login = ({isAuth, id, photos, loginThunk}) => {
         <div className={classes.main}>
             <div className={classes.loginForm}>
                 <h1>Sign in</h1>
-                <LoginForm loginThunk={loginThunk}/>
+                <LoginForm loginThunk={loginThunk} captchaUrl={captchaUrl}/>
             </div>
             <div className={classes.loginImg}>
                 <img src={photos[6].bg} alt=""/>
@@ -29,7 +29,8 @@ const Login = ({isAuth, id, photos, loginThunk}) => {
 const mapStateToProps = (state) => ({
     isAuth : state.auth.isAuth,
     id: state.auth.id,
-    photos: state.photoPage.photos
+    photos: state.photoPage.photos,
+    captchaUrl:state.auth.captchaUrl
 
 })
 

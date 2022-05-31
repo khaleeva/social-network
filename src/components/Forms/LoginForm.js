@@ -8,7 +8,7 @@ import MyCustomButton from "../../MUI/MyCustomButton";
 import Stack from "@mui/material/Stack";
 
 
-const LoginForm = ({loginThunk}) => {
+const LoginForm = ({loginThunk, captchaUrl}) => {
 
 
     const formik = useFormik({
@@ -16,6 +16,7 @@ const LoginForm = ({loginThunk}) => {
             email: '',
             password: '',
             rememberMe: false,
+            captcha: ''
         },
 
         validationSchema: Yup.object().shape({
@@ -26,7 +27,7 @@ const LoginForm = ({loginThunk}) => {
 
         onSubmit: values => {
             loginThunk(formik.values.email, formik.values.password,
-                formik.values.rememberMe, formik.setStatus, formik.setSubmitting)
+                formik.values.rememberMe, formik.values.captcha, formik.setStatus, formik.setSubmitting)
             formik.setSubmitting(true)
 
         },
@@ -47,7 +48,7 @@ const LoginForm = ({loginThunk}) => {
                      '& > :not(style)': {m: 1, width: '30ch'},
                  }}
                  validate
-                 autoComplete="on"
+                 autoComplete="off"
             >
 
 
@@ -98,14 +99,30 @@ const LoginForm = ({loginThunk}) => {
                     />
                 </FormGroup>
 
+                {captchaUrl ?
+                    <>
+                        <div><img src={captchaUrl} alt=""/></div>
+                        <TextField className={classes.formItem}
+                                   id="captcha"
+                                   label="Captcha"
+                                   size="small"
+                                   variant="outlined"
+                                   name="captcha"
+                                   type="text"
+                                   onChange={formik.handleChange}
+                                   value={formik.values.captcha}
+
+                        />
+                    </> : null
+
+                }
+
 
                 {formik.isSubmitting ?
                     <MyCustomButton type="submit" className={"sendButtonDisabled"} disabled={true}>Sign
                         In</MyCustomButton>
 
                     : <MyCustomButton type="submit" className={"loginButton"} disabled={false}>Sign In</MyCustomButton>}
-
-
             </Box>
         </>
     );
