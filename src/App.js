@@ -2,7 +2,6 @@ import './App.css';
 import HeaderContainer from "./components/Header/HeaderContainer";
 // import Navbar from "./components/Navbar/Navbar";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {Navigate} from "react-router-dom";
 import React, {useEffect} from "react";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
@@ -28,13 +27,18 @@ import Relation from "./components/About/AboutProfile/Relation";
 import AboutDetails from "./components/About/AboutProfile/AboutDetails";
 import Work from "./components/About/AboutProfile/Work";
 import ContactContainer from "./components/About/AboutProfile/ContactContainer";
-import NotFound from "./components/NotFound/NotFound";
+// import NotFound from "./components/NotFound/NotFound";
 import AlertTitle from "@mui/material/AlertTitle";
 import Alert from "@mui/material/Alert";
+import {setGlobalError} from "./redux/profile-reducer";
 
 
-const App = ({initializeApp, initialized, id, error}) => {
+const App = ({initializeApp, initialized, error, setGlobalError}) => {
 
+
+    setTimeout(() =>{
+       setGlobalError(null)
+    },  5000);
 
     useEffect(() => {
         initializeApp();
@@ -63,7 +67,7 @@ const App = ({initializeApp, initialized, id, error}) => {
                 :
                 <div className="app-wrapper-content">
                     <Routes>
-                        <Route path="/" element={<Navigate to={`/profile/posts/${id}`}/>}/>
+                        <Route path="/" element={<Login/>}/>}/>
                         <Route path="profile/*" element={<ProfileContainer/>}>
                             <Route index element={<MyPostsContainer/>}/>
                             <Route path="posts" element={<MyPostsContainer/>}/>
@@ -86,7 +90,7 @@ const App = ({initializeApp, initialized, id, error}) => {
                         <Route path="privacy" element={<Privacy/>}/>
                         <Route path="terms" element={<Terms/>}/>
                         <Route path="login" element={<Login/>}/>
-                        <Route path="*" element={<NotFound/>}/>
+                        {/*<Route path="*" element={<NotFound/>}/>*/}
                     </Routes>
                 </div>}
             <Footer/>
@@ -110,7 +114,7 @@ let mapStateToProps = (state) => (
 )
 
 
-const AppContainer = connect(mapStateToProps, {initializeApp})(App);
+const AppContainer = connect(mapStateToProps, {initializeApp, setGlobalError})(App);
 
 const MainAppContainer = () => {
 

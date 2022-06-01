@@ -112,22 +112,26 @@ export const setGlobalError = (error) => {
     }
 }
 
-
-
-
-
-
 //thunk
 
 export const profileThunkCreator = (userId) => async (dispatch) => {
-    let data = await profileAPI.profile(userId);
-    dispatch(setUserProfile(data));
+    try{
+        let data = await profileAPI.profile(userId);
+        dispatch(setUserProfile(data));
+    } catch(error) {
+        dispatch(setGlobalError(error))
+    }
 }
 
 
 export const getStatus = (userId) => async (dispatch) => {
-    let data = await profileAPI.getStatus(userId)
-    dispatch(setStatus(data));
+    try {
+        let data = await profileAPI.getStatus(userId)
+        dispatch(setStatus(data));
+    } catch(error) {
+        dispatch(setGlobalError(error))
+    }
+
 }
 
 export const updateStatus = (status) => async (dispatch) => {
@@ -138,24 +142,33 @@ export const updateStatus = (status) => async (dispatch) => {
         }
     } catch(error) {
             dispatch(setGlobalError(error))
-        console.log(error)
     }
 
 }
 
 export const savePhoto = (file) => async (dispatch) => {
-    let data = await profileAPI.savePhoto(file)
-    if (data.resultCode === 0) {
-        dispatch(savePhotoSuccess(data.data.photos));
+    try{
+        let data = await profileAPI.savePhoto(file)
+        if (data.resultCode === 0) {
+            dispatch(savePhotoSuccess(data.data.photos));
+        }
+    } catch(error) {
+        dispatch(setGlobalError(error))
     }
+
 }
 
 export const saveData = (profile) => async (dispatch, getState) => {
-    const userId = getState().auth.id;
-    let data = await profileAPI.saveData(profile)
-    if (data.resultCode === 0) {
-        dispatch(profileThunkCreator(userId));
+    try{
+        const userId = getState().auth.id;
+        let data = await profileAPI.saveData(profile)
+        if (data.resultCode === 0) {
+            dispatch(profileThunkCreator(userId));
+        }
+    } catch(error) {
+        dispatch(setGlobalError(error))
     }
+
 }
 
 export default profileReducer;

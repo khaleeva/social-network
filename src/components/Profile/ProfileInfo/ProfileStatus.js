@@ -9,11 +9,8 @@ import EditBtn from "../../../MUI/EditBtn";
 
 const ProfileStatus = ({status, updateStatus, profile, id}) => {
 
-
-
     const [editMode, setEditMode] = useState(false);
     const [newStatus, setNewStatus] = useState(status);
-
 
     useEffect(() => {
         setNewStatus(status);
